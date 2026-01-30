@@ -11,7 +11,7 @@ export default function Navigation() {
             <div className="container">
                 <div className="flex items-center justify-between py-4">
                     <Link href="/" className="flex items-center gap-3">
-                        <img src="/images/logo.png" alt="Pure Diamond Massage" className="h-12 w-auto" />
+                        <img src="/images/logo.png" alt="Pure Diamond Massage" className="h-10 md:h-12 w-auto max-w-[200px]" />
                     </Link>
 
                     {/* Desktop Navigation */}

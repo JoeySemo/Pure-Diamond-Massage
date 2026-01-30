@@ -56,7 +56,7 @@ export default function Home() {
                         <img
                             src="/images/logo.png"
                             alt="Pure Diamond Massage"
-                            className="mx-auto mb-8 h-32 md:h-48 w-auto drop-shadow-2xl"
+                            className="mx-auto mb-8 max-w-xs md:max-w-md w-full h-auto drop-shadow-2xl"
                         />
                         <h1 className="text-white mb-6">
                             Personalized Healing & Wellness
