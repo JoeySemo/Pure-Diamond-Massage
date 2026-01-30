@@ -72,6 +72,34 @@
   width: 100%;
 }
 
+/* Logo Sizing - Critical Fix */
+nav img[src="/images/logo.png"] {
+  height: 3rem !important;
+  max-width: 200px !important;
+  width: auto !important;
+  object-fit: contain !important;
+}
+
+@media (min-width: 768px) {
+  nav img[src="/images/logo.png"] {
+    height: 3rem !important;
+  }
+}
+
+section img[src="/images/logo.png"] {
+  max-width: 320px !important;
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+  margin: 0 auto 2rem !important;
+}
+
+@media (min-width: 768px) {
+  section img[src="/images/logo.png"] {
+    max-width: 448px !important;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
