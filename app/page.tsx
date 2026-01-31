@@ -6,275 +6,320 @@ export default function Home() {
     const services = [
         {
             name: 'Swedish Massage',
-            description: 'Gentle, flowing strokes to promote deep relaxation and improve circulation.',
+            description: 'Experience deep relaxation with our signature Swedish Massage. Gentle, flowing strokes work to release tension and improve circulation.',
+            image: '/images/massage-1.jpg', // Placeholder logic, will use colors/icons if images missing
+            likes: '1.2k',
+            comments: '342',
             icon: '🌿',
-            duration: '60-90 min',
+            time: '2 hrs ago',
             link: '/services'
         },
         {
-            name: 'Deep Tissue',
-            description: 'Targeted pressure to release chronic muscle tension and stubborn knots.',
+            name: 'Deep Tissue Therapy',
+            description: 'Got knots? Our Deep Tissue therapy targets chronic muscle tension. Perfect for recovery after a long week or intense workout.',
+            likes: '856',
+            comments: '128',
             icon: '💎',
-            duration: '60-90 min',
+            time: '4 hrs ago',
             link: '/services'
         },
         {
             name: 'Myofascial Release',
-            description: 'Specialized technique to release fascial restrictions and restore mobility.',
+            description: 'Restore your range of motion. This specialized technique releases restrictions in the connective tissue.',
+            likes: '920',
+            comments: '56',
             icon: '✨',
-            duration: '60-90 min',
+            time: 'Yesterday',
             link: '/services'
         },
-        {
-            name: 'Sports Massage',
-            description: 'Performance-focused therapy designed for athletes and active lifestyles.',
-            icon: '⚡',
-            duration: '60-90 min',
-            link: '/services'
-        },
-        {
-            name: 'Reflexology',
-            description: 'Pressure point therapy on feet to promote whole-body balance.',
-            icon: '🦶',
-            duration: '30-60 min',
-            link: '/services'
-        },
-        {
-            name: 'Cupping Therapy',
-            description: 'Ancient healing technique using suction to enhance circulation.',
-            icon: '🔮',
-            duration: 'Add-on',
-            link: '/services'
-        }
     ];
 
     return (
-        <main className="min-h-screen bg-cream">
+        <main className="min-h-screen bg-[#F0F2F5] pb-20">
             <Navigation />
 
-            {/* Hero Section - Refactored for Robustness */}
-            <section id="home" className="relative min-h-screen w-full flex flex-col justify-center pt-32 pb-20 bg-[#2D1F3D] overflow-hidden">
-                {/* Background Gradient Applied via Inline Style for Safety */}
-                <div
-                    className="absolute inset-0 z-0 opacity-80"
-                    style={{
-                        background: 'linear-gradient(135deg, #2D1F3D 0%, #4A3660 50%, #2D1F3D 100%)'
-                    }}
-                />
+            {/* Container for Profile Layout */}
+            <div className="w-full max-w-[940px] mx-auto">
 
-                {/* Dark Overlay for Contrast */}
-                <div className="absolute inset-0 z-0 bg-black/30" />
-
-                {/* Decorative Elements */}
-                <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-                    <div className="absolute top-[10%] left-[10%] w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-[#D4A84B]/10 rounded-full blur-[80px] animate-float" />
-                    <div className="absolute bottom-[10%] right-[10%] w-[250px] md:w-[400px] h-[250px] md:h-[400px] bg-white/5 rounded-full blur-[60px] animate-float delay-700" />
-                </div>
-
-                {/* Content Container */}
-                <div className="container relative z-10 text-center text-white">
-                    <div className="max-w-4xl mx-auto">
-                        {/* Location Badge */}
-                        <div className="inline-flex items-center gap-2 px-6 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20 mb-8 animate-fade-in shadow-lg">
-                            <span className="text-[#D4A84B] animate-pulse">✦</span>
-                            <span className="text-sm font-medium tracking-widest uppercase">Cuba, Missouri</span>
-                        </div>
-
-                        {/* Logo - FORCED HEIGHT, NO FILTERS FOR FULL COLOR */}
-                        <div className="mb-8 animate-fade-in-up">
-                            <img
-                                src="/images/logo.png"
-                                alt="Pure Diamond Massage"
-                                className="mx-auto h-28 md:h-36 w-auto drop-shadow-2xl hover:scale-105 transition-transform duration-500"
-                                style={{ height: '9rem', width: 'auto' }}
-                            />
-                        </div>
-
-                        {/* Headline */}
-                        <h1 className="text-white mb-6 animate-fade-in-up delay-200 drop-shadow-lg leading-tight">
-                            Where Healing Meets <span className="text-[#D4A84B] font-serif italic">Tranquility</span>
-                        </h1>
-
-                        {/* Subheadline */}
-                        <p className="text-xl md:text-2xl text-white/90 mb-10 leading-relaxed animate-fade-in-up delay-300 max-w-2xl mx-auto font-light">
-                            Experience personalized massage therapy in a serene environment,
-                            designed to relieve tension and restore your natural balance.
-                        </p>
-
-                        {/* Call to Actions */}
-                        <div className="flex flex-col sm:flex-row gap-5 justify-center animate-fade-in-up delay-500">
-                            <Link href="/contact" className="btn btn-primary min-w-[180px]">
-                                Book Your Session
-                            </Link>
-                            <Link href="/services" className="btn btn-ghost min-w-[180px]">
-                                Explore Services
-                            </Link>
-                        </div>
-
-                        {/* Trust Indicators */}
-                        <div className="mt-16 flex flex-wrap items-center justify-center gap-6 md:gap-12 text-white/80 text-sm animate-fade-in delay-700">
-                            <div className="flex items-center gap-2">
-                                <span className="text-[#D4A84B]">★★★★★</span>
-                                <span className="font-medium">5-Star Reviews</span>
-                            </div>
-                            <div className="hidden md:block w-px h-6 bg-white/20" />
-                            <div className="flex items-center gap-2">
-                                <span className="text-[#5A8A5E]">✓</span>
-                                <span className="font-medium">Licensed Therapist</span>
-                            </div>
+                {/* 1. Cover Photo Area */}
+                <div className="relative w-full bg-white shadow-sm rounded-b-xl overflow-hidden">
+                    {/* Cover Gradient/Image */}
+                    <div className="h-[200px] md:h-[350px] bg-gradient-to-r from-[#1877F2] to-[#4A90E2] relative">
+                        <div className="absolute inset-0 bg-black/10"></div>
+                        <div className="absolute bottom-4 right-4 bg-white/20 backdrop-blur-md px-3 py-1.5 rounded-md text-white font-medium text-sm flex items-center gap-2 cursor-pointer hover:bg-white/30 transition">
+                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" /></svg>
+                            Edit Cover Photo
                         </div>
                     </div>
-                </div>
 
-                {/* Bottom Fade */}
-                <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#FFFEF9] to-transparent z-10" />
-            </section>
+                    {/* Profile Header Info */}
+                    <div className="px-4 md:px-8 pb-4 relative">
+                        <div className="flex flex-col md:flex-row items-center md:items-end gap-4 -mt-[84px] md:-mt-[30px] mb-4">
+                            {/* Profile Picture (Logo) */}
+                            <div className="relative z-10 p-1 bg-white rounded-full">
+                                <div className="w-[168px] h-[168px] rounded-full bg-white overflow-hidden border-4 border-white shadow-md relative">
+                                    <img
+                                        src="/images/logo.png"
+                                        alt="Profile"
+                                        className="w-full h-full object-cover animate-pulse-ring"
+                                    />
+                                    {/* Online Status Indicator */}
+                                    <div className="absolute bottom-4 right-4 w-6 h-6 bg-[#42B72A] rounded-full border-4 border-white" title="Open Now"></div>
+                                </div>
+                            </div>
 
-            {/* Services Section with Clickable Cards */}
-            <section className="section bg-cream relative z-20">
-                <div className="container">
-                    {/* Section Header */}
-                    <div className="text-center max-w-2xl mx-auto mb-20">
-                        <span className="badge mb-6">Our Services</span>
-                        <h2 className="mb-6 text-charcoal">Tailored Treatments</h2>
-                        <div className="divider mb-8" />
-                        <p className="text-lg text-gray">
-                            Each session is carefully customized to address your unique needs,
-                            whether you seek relaxation, recovery, or relief.
-                        </p>
-                    </div>
-
-                    {/* Services Grid - Now Clickable */}
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        {services.map((service, index) => (
-                            <Link
-                                href={service.link}
-                                key={service.name}
-                                className="card group block relative overflow-hidden"
-                            >
-                                <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                    <span className="w-8 h-8 flex items-center justify-center bg-[#D4A84B] rounded-full text-white">
-                                        →
+                            {/* Name & Headline */}
+                            <div className="flex-1 text-center md:text-left mb-2 md:mb-8 pt-4 md:pt-12">
+                                <h1 className="text-3xl font-bold text-[#050505] flex items-center justify-center md:justify-start gap-2">
+                                    Pure Diamond Massage
+                                    <span className="text-[#1877F2]">
+                                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
                                     </span>
-                                </div>
-                                <div className="flex items-start gap-5">
-                                    <div className="w-16 h-16 flex-shrink-0 flex items-center justify-center text-3xl bg-cream-dark rounded-2xl group-hover:bg-[#2D1F3D] group-hover:scale-110 transition-all duration-300 shadow-inner">
-                                        <span className="group-hover:brightness-0 group-hover:invert transition-all duration-300 filter">
-                                            {service.icon}
-                                        </span>
+                                </h1>
+                                <p className="text-[#65676B] font-semibold text-lg">Massage Service · Cuba, Missouri</p>
+                                <div className="flex items-center justify-center md:justify-start gap-[-8px] mt-2">
+                                    <div className="flex -space-x-2 overflow-hidden">
+                                        {[1, 2, 3].map(i => (
+                                            <div key={i} className="inline-block h-6 w-6 rounded-full ring-2 ring-white bg-gray-200" />
+                                        ))}
                                     </div>
-                                    <div className="flex-1">
-                                        <h3 className="text-xl font-bold mb-3 text-charcoal group-hover:text-[#2D1F3D] transition-colors">
-                                            {service.name}
-                                        </h3>
-                                        <p className="text-sm text-gray mb-4 leading-relaxed group-hover:text-charcoal transition-colors">
-                                            {service.description}
-                                        </p>
-                                        <span className="text-xs font-bold text-[#D4A84B] uppercase tracking-wider bg-[#D4A84B]/10 px-3 py-1 rounded-full">
-                                            {service.duration}
-                                        </span>
-                                    </div>
+                                    <span className="ml-3 text-sm text-[#65676B] hover:underline cursor-pointer">1.2k friends like this</span>
                                 </div>
-                            </Link>
-                        ))}
-                    </div>
+                            </div>
 
-                    {/* View All CTA */}
-                    <div className="text-center mt-16">
-                        <Link href="/services" className="btn btn-outline hover:bg-[#2D1F3D] hover:border-[#2D1F3D] hover:text-white transition-all duration-300">
-                            View Full Menu & Pricing
-                        </Link>
+                            {/* Action Buttons */}
+                            <div className="flex gap-2 mb-4 md:mb-8">
+                                <Link href="/contact" className="btn btn-primary gap-2 px-4">
+                                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" /><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" /></svg>
+                                    Message
+                                </Link>
+                                <button className="btn btn-secondary gap-2 px-4">
+                                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" /></svg>
+                                    Like
+                                </button>
+                            </div>
+                        </div>
+
+                        <div className="border-t border-[#CED0D4] pt-1">
+                            {/* Profile Navigation Tabs */}
+                            <div className="flex items-center gap-1 overflow-x-auto no-scrollbar">
+                                {['Posts', 'About', 'Mentions', 'Reviews', 'Followers', 'Photos'].map((tab, i) => (
+                                    <div
+                                        key={tab}
+                                        className={`px-4 py-3 font-semibold text-[15px] cursor-pointer whitespace-nowrap border-b-[3px] transition-colors ${i === 0 ? 'text-[#1877F2] border-[#1877F2]' : 'text-[#65676B] border-transparent hover:bg-[#F0F2F5] rounded-lg'}`}
+                                    >
+                                        {tab}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </section>
 
-            {/* About Section - Redesigned Layout */}
-            <section className="section bg-white relative overflow-hidden">
-                {/* Decorative Background Blob */}
-                <div className="absolute right-0 top-1/4 w-[600px] h-[600px] bg-[#D4A84B]/5 rounded-full blur-[120px] pointer-events-none" />
+                {/* 2. Main Layout: Sidebar + Feed */}
+                <div className="flex flex-col md:flex-row gap-4 mt-4 px-4 md:px-0">
 
-                <div className="container relative z-10">
-                    <div className="grid lg:grid-cols-2 gap-20 items-center">
-                        {/* Image/Quote Column */}
-                        <div className="relative animate-slide-right">
-                            <div className="bg-gradient-to-br from-[#2D1F3D] to-[#4A3660] rounded-[2rem] p-10 md:p-14 text-white shadow-2xl transform rotate-1 hover:rotate-0 transition-transform duration-500">
-                                <div className="text-[#D4A84B] text-6xl mb-8 font-serif leading-none">"</div>
-                                <p className="text-2xl font-display italic leading-relaxed mb-10 text-white/95">
-                                    My goal is to create a sanctuary where your body feels safe
-                                    enough to release tension and begin true healing.
-                                </p>
-                                <div className="flex items-center gap-5 border-t border-white/10 pt-8">
-                                    <div className="w-16 h-16 bg-[#D4A84B] rounded-full flex items-center justify-center text-[#2D1F3D] font-display text-3xl font-bold shadow-lg">
-                                        D
+                    {/* Left Sidebar (Intro) */}
+                    <div className="w-full md:w-[360px] flex-shrink-0 space-y-4">
+                        {/* Intro Card */}
+                        <div className="social-card p-4">
+                            <h2 className="text-xl font-bold mb-3 text-[#050505]">Intro</h2>
+                            <p className="text-center text-sm text-[#050505] mb-4">Based in Cuba, MO. Healing bodies one session at a time. ✨</p>
+                            <div className="space-y-3 mb-4">
+                                <Link href="/contact" className="w-full btn btn-secondary bg-[#F0F2F5] hover:bg-[#D8DADF]">Book Appointment</Link>
+                            </div>
+
+                            <div className="space-y-3 text-[15px]">
+                                <div className="flex items-center gap-3 text-[#050505]">
+                                    <svg className="w-5 h-5 text-[#8C939D]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clipRule="evenodd" /><path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z" /></svg>
+                                    <span>Relaxation Specialist at <span className="font-semibold">Pure Diamond</span></span>
+                                </div>
+                                <div className="flex items-center gap-3 text-[#050505]">
+                                    <svg className="w-5 h-5 text-[#8C939D]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" /></svg>
+                                    <span>From <span className="font-semibold">Cuba, Missouri</span></span>
+                                </div>
+                                <div className="flex items-center gap-3 text-[#050505]">
+                                    <svg className="w-5 h-5 text-[#8C939D]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" /></svg>
+                                    <span>Always Open (Online Booking)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Photos Side Preview */}
+                        <div className="social-card p-4">
+                            <div className="flex justify-between items-center mb-3">
+                                <h2 className="text-xl font-bold text-[#050505]">Photos</h2>
+                                <a href="#" className="text-[#1877F2] text-[15px] hover:bg-[#F0F2F5] px-2 py-1 rounded">See All Photos</a>
+                            </div>
+                            <div className="grid grid-cols-3 gap-1 rounded-lg overflow-hidden">
+                                <div className="aspect-square bg-[#E4E6EB] animate-pulse"></div>
+                                <div className="aspect-square bg-[#E4E6EB] animate-pulse"></div>
+                                <div className="aspect-square bg-[#E4E6EB] animate-pulse"></div>
+                                <div className="aspect-square bg-[#E4E6EB] animate-pulse"></div>
+                                <div className="aspect-square bg-[#E4E6EB] animate-pulse"></div>
+                                <div className="aspect-square bg-[#E4E6EB] animate-pulse"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Right Column (Feed) */}
+                    <div className="flex-1 space-y-4">
+                        {/* "Create Post" Box (Simulated) */}
+                        <div className="social-card p-3">
+                            <div className="flex gap-2 mb-3 border-b border-[#E4E6EB] pb-3">
+                                <div className="w-10 h-10 rounded-full bg-gray-200 overflow-hidden flex-shrink-0">
+                                    <img src="/images/logo.png" className="w-full h-full object-cover" />
+                                </div>
+                                <div className="flex-1 bg-[#F0F2F5] rounded-full px-4 flex items-center text-[#65676B] hover:bg-[#E4E6EB] cursor-pointer">
+                                    What treatment do you need today?
+                                </div>
+                            </div>
+                            <div className="flex justify-between px-2">
+                                <div className="flex items-center gap-2 py-2 px-4 hover:bg-[#F0F2F5] rounded-lg cursor-pointer">
+                                    <span className="text-[#F3425F]">🎥</span> <span className="text-[#65676B] font-semibold text-[14px]">Live Video</span>
+                                </div>
+                                <div className="flex items-center gap-2 py-2 px-4 hover:bg-[#F0F2F5] rounded-lg cursor-pointer">
+                                    <span className="text-[#45BD62]">🖼️</span> <span className="text-[#65676B] font-semibold text-[14px]">Photo/Video</span>
+                                </div>
+                                <div className="flex items-center gap-2 py-2 px-4 hover:bg-[#F0F2F5] rounded-lg cursor-pointer">
+                                    <span className="text-[#F7B928]">😊</span> <span className="text-[#65676B] font-semibold text-[14px]">Feeling/Activity</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Pinned Post */}
+                        <div className="social-card">
+                            {/* Post Header */}
+                            <div className="p-3 pl-4 flex items-start justify-between">
+                                <div className="flex gap-2">
+                                    <div className="w-10 h-10 rounded-full border border-gray-200 overflow-hidden cursor-pointer">
+                                        <img src="/images/logo.png" className="w-full h-full object-cover" />
                                     </div>
                                     <div>
-                                        <p className="font-bold text-lg text-white">Diamond Payne</p>
-                                        <p className="text-[#D4A84B] text-sm uppercase tracking-wider font-medium">Licensed Massage Therapist</p>
+                                        <h3 className="font-semibold text-[#050505] text-[15px] cursor-pointer hover:underline">Pure Diamond Massage</h3>
+                                        <div className="flex items-center gap-1 text-xs text-[#65676B]">
+                                            <span>Pinned Post</span>
+                                            <span>·</span>
+                                            <svg className="w-3 h-3 text-[#65676B]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" /></svg>
+                                        </div>
                                     </div>
                                 </div>
+                                <div className="p-2 hover:bg-[#F0F2F5] rounded-full cursor-pointer text-[#65676B]">
+                                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" /></svg>
+                                </div>
+                            </div>
+
+                            {/* Post Content */}
+                            <div className="px-4 pb-2 text-[15px] text-[#050505]">
+                                Welcome to my new page! 💎 <br />
+                                I'm excited to share my passion for healing with you all. Book your session today and experience the difference. #MassageTherapy #CubaMO #Relaxation
+                            </div>
+
+                            {/* Post Image (Placeholder Gradient) */}
+                            <div className="w-full h-[300px] bg-gradient-to-br from-[#1877F2] to-[#6BC5F8] flex items-center justify-center text-white text-4xl font-bold">
+                                New Beginnings!
+                            </div>
+
+                            {/* Engagement Stats */}
+                            <div className="mx-4 py-2 border-b border-[#CED0D4] flex justify-between text-[#65676B] text-[14px]">
+                                <div className="flex items-center gap-1">
+                                    <div className="bg-[#1877F2] rounded-full p-1 w-4 h-4 flex items-center justify-center">
+                                        <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z" /></svg>
+                                    </div>
+                                    <span>You and 84 others</span>
+                                </div>
+                                <div className="flex gap-4">
+                                    <span>24 Comments</span>
+                                    <span>6 Shares</span>
+                                </div>
+                            </div>
+
+                            {/* Action Bar */}
+                            <div className="mx-4 py-1 flex items-center justify-between">
+                                <button className="flex-1 flex items-center justify-center gap-2 py-2 hover:bg-[#F0F2F5] rounded-md text-[#65676B] font-semibold text-[14px]">
+                                    👍 Like
+                                </button>
+                                <button className="flex-1 flex items-center justify-center gap-2 py-2 hover:bg-[#F0F2F5] rounded-md text-[#65676B] font-semibold text-[14px]">
+                                    💬 Comment
+                                </button>
+                                <button className="flex-1 flex items-center justify-center gap-2 py-2 hover:bg-[#F0F2F5] rounded-md text-[#65676B] font-semibold text-[14px]">
+                                    ↗ Share
+                                </button>
                             </div>
                         </div>
 
-                        {/* Content Column */}
-                        <div className="animate-slide-left">
-                            <span className="badge mb-6">About the Therapist</span>
-                            <h2 className="mb-8 text-charcoal">Meet Diamond Payne</h2>
-                            <p className="text-lg mb-6 leading-relaxed text-gray">
-                                Diamond Payne is a graduate of The Healing Arts Center in Saint Louis,
-                                bringing fresh expertise and a genuine passion for holistic wellness
-                                to the Cuba, Missouri community.
-                            </p>
-                            <p className="mb-10 leading-relaxed text-gray">
-                                With specialized training in <span className="font-semibold text-[#2D1F3D]">myofascial release</span> and <span className="font-semibold text-[#2D1F3D]">deep tissue techniques</span>,
-                                Diamond creates personalized treatment plans that address each client's
-                                unique needs—whether recovering from injury, managing chronic pain,
-                                or simply seeking moments of profound relaxation.
-                            </p>
+                        {/* Service Cards as Posts */}
+                        {services.map((service, index) => (
+                            <div key={index} className="social-card">
+                                {/* Post Header */}
+                                <div className="p-3 pl-4 flex items-start justify-between">
+                                    <div className="flex gap-2">
+                                        <div className="w-10 h-10 rounded-full border border-gray-200 overflow-hidden cursor-pointer">
+                                            <img src="/images/logo.png" className="w-full h-full object-cover" />
+                                        </div>
+                                        <div>
+                                            <h3 className="font-semibold text-[#050505] text-[15px] cursor-pointer hover:underline">Pure Diamond Services</h3>
+                                            <div className="flex items-center gap-1 text-xs text-[#65676B]">
+                                                <span>{service.time}</span>
+                                                <span>·</span>
+                                                <svg className="w-3 h-3 text-[#65676B]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" /></svg>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="p-2 hover:bg-[#F0F2F5] rounded-full cursor-pointer text-[#65676B]">
+                                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" /></svg>
+                                    </div>
+                                </div>
 
-                            <Link href="/about" className="btn btn-secondary group">
-                                Read More About Diamond
-                                <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
-                            </Link>
-                        </div>
+                                {/* Post Content */}
+                                <div className="px-4 pb-2 text-[15px] text-[#050505]">
+                                    <span className="font-bold block mb-1 text-lg">{service.name} {service.icon}</span>
+                                    {service.description}
+                                </div>
+
+                                {/* Post "Image" (Service Visual) */}
+                                <div className="w-full h-[250px] bg-[#F0F2F5] relative group cursor-pointer overflow-hidden">
+                                    {/* Simple decorative background */}
+                                    <div className="absolute inset-0 bg-gradient-to-r from-gray-100 to-gray-200 flex items-center justify-center">
+                                        <span className="text-8xl opacity-20 filter grayscale">{service.icon}</span>
+                                    </div>
+                                    <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/10 transition">
+                                        <Link href={service.link} className="btn btn-primary px-6 py-2 shadow-lg scale-95 group-hover:scale-100 transition-transform">
+                                            Book This Service
+                                        </Link>
+                                    </div>
+                                </div>
+
+                                {/* Engagement Stats */}
+                                <div className="mx-4 py-2 border-b border-[#CED0D4] flex justify-between text-[#65676B] text-[14px]">
+                                    <div className="flex items-center gap-1">
+                                        <div className="bg-[#1877F2] rounded-full p-1 w-4 h-4 flex items-center justify-center">
+                                            <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z" /></svg>
+                                        </div>
+                                        <span>{service.likes}</span>
+                                    </div>
+                                    <div className="flex gap-4">
+                                        <span>{service.comments} Comments</span>
+                                    </div>
+                                </div>
+
+                                {/* Action Bar */}
+                                <div className="mx-4 py-1 flex items-center justify-between">
+                                    <Link href={service.link} className="flex-1 flex items-center justify-center gap-2 py-2 hover:bg-[#F0F2F5] rounded-md text-[#65676B] font-semibold text-[14px]">
+                                        👍 Like
+                                    </Link>
+                                    <Link href="/contact" className="flex-1 flex items-center justify-center gap-2 py-2 hover:bg-[#F0F2F5] rounded-md text-[#65676B] font-semibold text-[14px]">
+                                        📅 Book Now
+                                    </Link>
+                                    <button className="flex-1 flex items-center justify-center gap-2 py-2 hover:bg-[#F0F2F5] rounded-md text-[#65676B] font-semibold text-[14px]">
+                                        ↗ Share
+                                    </button>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
-            </section>
-
-            {/* Social Proof Section */}
-            <section className="py-24 bg-[#2D1F3D] text-white relative overflow-hidden">
-                <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-5" />
-                <div className="container relative z-10 text-center">
-                    <div className="text-[#D4A84B] text-4xl mb-8 animate-bounce">★★★★★</div>
-                    <h2 className="mb-10 text-white text-3xl md:text-5xl">Trusted by the Community</h2>
-                    <blockquote className="text-xl md:text-2xl text-white/80 max-w-4xl mx-auto mb-8 font-light italic leading-relaxed">
-                        "Absolutely amazing experience. Diamond truly listens to what your body
-                        needs and delivers exactly that. I left feeling like a new person."
-                    </blockquote>
-                    <cite className="text-[#D4A84B] font-medium not-italic tracking-wider uppercase text-sm">— Satisfied Client</cite>
-                </div>
-            </section>
-
-            {/* CTA Section */}
-            <section className="section bg-cream">
-                <div className="container">
-                    <div className="bg-white rounded-[3rem] p-10 md:p-20 text-center shadow-xl border border-gray-100 relative overflow-hidden">
-                        <div className="absolute top-0 right-0 w-64 h-64 bg-[#D4A84B]/10 rounded-bl-full" />
-                        <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#2D1F3D]/5 rounded-tr-full" />
-
-                        <div className="relative z-10">
-                            <span className="text-[#D4A84B] font-bold tracking-widest uppercase text-sm mb-4 block">Ready to Relax?</span>
-                            <h2 className="mb-8 text-charcoal">Begin Your Wellness Journey</h2>
-                            <p className="text-xl text-gray max-w-2xl mx-auto mb-10 leading-relaxed">
-                                Located in the heart of Cuba, Missouri. Sessions are by appointment only
-                                to ensure you receive our undivided attention.
-                            </p>
-                            <Link href="/contact" className="btn btn-primary text-lg px-10 py-4">
-                                Schedule Your Appointment
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            </div>
 
             <Footer />
         </main>
