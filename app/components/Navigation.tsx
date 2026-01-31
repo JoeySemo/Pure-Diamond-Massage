@@ -21,6 +21,7 @@ export default function Navigation() {
                             src="/images/logo.png"
                             alt="Pure Diamond Massage"
                             className="w-full h-full object-cover p-1 animate-shimmer"
+                            style={{ width: '100%', height: '100%' }}
                         />
                     </div>
                 </Link>

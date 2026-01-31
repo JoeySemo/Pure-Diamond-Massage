@@ -62,6 +62,7 @@ export default function Home() {
                                         src="/images/logo.png"
                                         alt="Profile"
                                         className="w-full h-full object-cover animate-pulse-ring"
+                                        style={{ width: '100%', height: '100%' }}
                                     />
                                     {/* Online Status Indicator */}
                                     <div className="absolute bottom-4 right-4 w-6 h-6 bg-[#42B72A] rounded-full border-4 border-white" title="Open Now"></div>
@@ -168,7 +169,7 @@ export default function Home() {
                         <div className="social-card p-3">
                             <div className="flex gap-2 mb-3 border-b border-[#E4E6EB] pb-3">
                                 <div className="w-10 h-10 rounded-full bg-gray-200 overflow-hidden flex-shrink-0">
-                                    <img src="/images/logo.png" className="w-full h-full object-cover" />
+                                    <img src="/images/logo.png" className="w-full h-full object-cover" style={{ width: '100%', height: '100%' }} />
                                 </div>
                                 <div className="flex-1 bg-[#F0F2F5] rounded-full px-4 flex items-center text-[#65676B] hover:bg-[#E4E6EB] cursor-pointer">
                                     What treatment do you need today?
@@ -193,7 +194,7 @@ export default function Home() {
                             <div className="p-3 pl-4 flex items-start justify-between">
                                 <div className="flex gap-2">
                                     <div className="w-10 h-10 rounded-full border border-gray-200 overflow-hidden cursor-pointer">
-                                        <img src="/images/logo.png" className="w-full h-full object-cover" />
+                                        <img src="/images/logo.png" className="w-full h-full object-cover" style={{ width: '100%', height: '100%' }} />
                                     </div>
                                     <div>
                                         <h3 className="font-semibold text-[#050505] text-[15px] cursor-pointer hover:underline">Pure Diamond Massage</h3>
@@ -255,7 +256,11 @@ export default function Home() {
                                 <div className="p-3 pl-4 flex items-start justify-between">
                                     <div className="flex gap-2">
                                         <div className="w-10 h-10 rounded-full border border-gray-200 overflow-hidden cursor-pointer">
-                                            <img src="/images/logo.png" className="w-full h-full object-cover" />
+                                            <img
+                                                src="/images/logo.png"
+                                                className="w-full h-full object-cover"
+                                                style={{ width: '100%', height: '100%' }}
+                                            />
                                         </div>
                                         <div>
                                             <h3 className="font-semibold text-[#050505] text-[15px] cursor-pointer hover:underline">Pure Diamond Services</h3>
