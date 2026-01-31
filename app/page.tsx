@@ -52,70 +52,72 @@ export default function Home() {
         <main className="min-h-screen bg-cream">
             <Navigation />
 
-            {/* Hero Section */}
-            {/* Added id="home" for potential scrolling, ensured full height with proper z-indexing */}
-            <section id="home" className="relative h-screen w-full flex items-center justify-center overflow-hidden">
-                {/* Background Layer - Deep Plum Gradient */}
+            {/* Hero Section - Refactored for Robustness */}
+            <section id="home" className="relative min-h-screen w-full flex flex-col justify-center pt-32 pb-20 bg-[#2D1F3D] overflow-hidden">
+                {/* Background Gradient Applied via Inline Style for Safety */}
                 <div
-                    className="absolute inset-0 z-0 bg-gradient-to-br from-[#2D1F3D] via-[#4A3660] to-[#2D1F3D]"
+                    className="absolute inset-0 z-0 opacity-80"
+                    style={{
+                        background: 'linear-gradient(135deg, #2D1F3D 0%, #4A3660 50%, #2D1F3D 100%)'
+                    }}
                 />
 
-                {/* Overlay for Extra Contrast */}
-                <div className="absolute inset-0 z-0 bg-black/20" />
+                {/* Dark Overlay for Contrast */}
+                <div className="absolute inset-0 z-0 bg-black/30" />
 
-                {/* Decorative Elements - Floating Orbs */}
+                {/* Decorative Elements */}
                 <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
-                    <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[#D4A84B]/10 rounded-full blur-[100px] animate-float" />
-                    <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-white/5 rounded-full blur-[80px] animate-float delay-700" />
+                    <div className="absolute top-[10%] left-[10%] w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-[#D4A84B]/10 rounded-full blur-[80px] animate-float" />
+                    <div className="absolute bottom-[10%] right-[10%] w-[250px] md:w-[400px] h-[250px] md:h-[400px] bg-white/5 rounded-full blur-[60px] animate-float delay-700" />
                 </div>
 
                 {/* Content Container */}
-                <div className="container relative z-10 text-center text-white pt-20">
+                <div className="container relative z-10 text-center text-white">
                     <div className="max-w-4xl mx-auto">
                         {/* Location Badge */}
-                        <div className="inline-flex items-center gap-2 px-6 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20 mb-10 animate-fade-in shadow-lg">
+                        <div className="inline-flex items-center gap-2 px-6 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20 mb-8 animate-fade-in shadow-lg">
                             <span className="text-[#D4A84B] animate-pulse">✦</span>
                             <span className="text-sm font-medium tracking-widest uppercase">Cuba, Missouri</span>
                         </div>
 
-                        {/* Logo - Increased Size for Visibility */}
-                        <div className="mb-10 animate-fade-in-up">
+                        {/* Logo */}
+                        <div className="mb-8 animate-fade-in-up">
                             <img
                                 src="/images/logo.png"
                                 alt="Pure Diamond Massage"
-                                className="mx-auto h-32 md:h-40 w-auto brightness-0 invert drop-shadow-2xl hover:scale-105 transition-transform duration-500"
+                                className="mx-auto h-28 md:h-36 w-auto brightness-0 invert drop-shadow-2xl hover:scale-105 transition-transform duration-500"
                             />
                         </div>
 
-                        {/* Headline - High Contrast, Elegant Typography */}
-                        <h1 className="text-white mb-8 animate-fade-in-up delay-200 drop-shadow-lg leading-tight">
-                            Where Healing Meets <span className="text-gradient font-serif italic">Tranquility</span>
+                        {/* Headline */}
+                        <h1 className="text-white mb-6 animate-fade-in-up delay-200 drop-shadow-lg leading-tight">
+                            Where Healing Meets <span className="text-[#D4A84B] font-serif italic">Tranquility</span>
                         </h1>
 
-                        {/* Subheadline - Readable Max Width */}
-                        <p className="text-xl md:text-2xl text-white/90 mb-12 leading-relaxed animate-fade-in-up delay-300 max-w-2xl mx-auto font-light">
+                        {/* Subheadline */}
+                        <p className="text-xl md:text-2xl text-white/90 mb-10 leading-relaxed animate-fade-in-up delay-300 max-w-2xl mx-auto font-light">
                             Experience personalized massage therapy in a serene environment,
                             designed to relieve tension and restore your natural balance.
                         </p>
 
-                        {/* Call to Actions - Improved Buttons */}
-                        <div className="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in-up delay-500">
-                            <Link href="/contact" className="btn btn-primary min-w-[200px]">
+                        {/* Call to Actions */}
+                        <div className="flex flex-col sm:flex-row gap-5 justify-center animate-fade-in-up delay-500">
+                            <Link href="/contact" className="btn btn-primary min-w-[180px]">
                                 Book Your Session
                             </Link>
-                            <Link href="/services" className="btn btn-ghost min-w-[200px]">
+                            <Link href="/services" className="btn btn-ghost min-w-[180px]">
                                 Explore Services
                             </Link>
                         </div>
 
                         {/* Trust Indicators */}
-                        <div className="mt-20 flex flex-wrap items-center justify-center gap-8 md:gap-16 text-white/80 text-sm animate-fade-in delay-700">
-                            <div className="flex items-center gap-3 bg-white/5 px-4 py-2 rounded-full backdrop-blur-sm border border-white/10">
+                        <div className="mt-16 flex flex-wrap items-center justify-center gap-6 md:gap-12 text-white/80 text-sm animate-fade-in delay-700">
+                            <div className="flex items-center gap-2">
                                 <span className="text-[#D4A84B]">★★★★★</span>
                                 <span className="font-medium">5-Star Reviews</span>
                             </div>
-                            <div className="hidden md:block w-px h-8 bg-white/20" />
-                            <div className="flex items-center gap-3 bg-white/5 px-4 py-2 rounded-full backdrop-blur-sm border border-white/10">
+                            <div className="hidden md:block w-px h-6 bg-white/20" />
+                            <div className="flex items-center gap-2">
                                 <span className="text-[#5A8A5E]">✓</span>
                                 <span className="font-medium">Licensed Therapist</span>
                             </div>
@@ -123,8 +125,8 @@ export default function Home() {
                     </div>
                 </div>
 
-                {/* Geometric Divider at Bottom */}
-                <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#FFFEF9] to-transparent z-10" />
+                {/* Bottom Fade */}
+                <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#FFFEF9] to-transparent z-10" />
             </section>
 
             {/* Services Section with Clickable Cards */}
