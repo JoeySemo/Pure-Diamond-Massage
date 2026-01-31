@@ -8,312 +8,272 @@ export default function Home() {
             name: 'Swedish Massage',
             description: 'Gentle, flowing strokes to promote deep relaxation and improve circulation.',
             icon: '🌿',
-            duration: '60-90 min'
+            duration: '60-90 min',
+            link: '/services'
         },
         {
             name: 'Deep Tissue',
             description: 'Targeted pressure to release chronic muscle tension and stubborn knots.',
             icon: '💎',
-            duration: '60-90 min'
+            duration: '60-90 min',
+            link: '/services'
         },
         {
             name: 'Myofascial Release',
             description: 'Specialized technique to release fascial restrictions and restore mobility.',
             icon: '✨',
-            duration: '60-90 min'
+            duration: '60-90 min',
+            link: '/services'
         },
         {
             name: 'Sports Massage',
             description: 'Performance-focused therapy designed for athletes and active lifestyles.',
             icon: '⚡',
-            duration: '60-90 min'
+            duration: '60-90 min',
+            link: '/services'
         },
         {
             name: 'Reflexology',
             description: 'Pressure point therapy on feet to promote whole-body balance.',
             icon: '🦶',
-            duration: '30-60 min'
+            duration: '30-60 min',
+            link: '/services'
         },
         {
             name: 'Cupping Therapy',
             description: 'Ancient healing technique using suction to enhance circulation.',
             icon: '🔮',
-            duration: 'Add-on'
+            duration: 'Add-on',
+            link: '/services'
         }
     ];
 
     return (
-        <>
+        <main className="min-h-screen bg-cream">
             <Navigation />
 
             {/* Hero Section */}
-            <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-                {/* Background */}
+            {/* Added id="home" for potential scrolling, ensured full height with proper z-indexing */}
+            <section id="home" className="relative h-screen w-full flex items-center justify-center overflow-hidden">
+                {/* Background Layer - Deep Plum Gradient */}
                 <div
-                    className="absolute inset-0 bg-gradient-to-br from-[#3D2B4F] via-[#5A4570] to-[#3D2B4F]"
+                    className="absolute inset-0 z-0 bg-gradient-to-br from-[#2D1F3D] via-[#4A3660] to-[#2D1F3D]"
                 />
 
-                {/* Decorative Elements */}
-                <div className="absolute inset-0 overflow-hidden">
-                    <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-[#C9A854]/10 rounded-full blur-3xl animate-float" />
-                    <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-white/5 rounded-full blur-3xl animate-float delay-300" />
+                {/* Overlay for Extra Contrast */}
+                <div className="absolute inset-0 z-0 bg-black/20" />
+
+                {/* Decorative Elements - Floating Orbs */}
+                <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
+                    <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[#D4A84B]/10 rounded-full blur-[100px] animate-float" />
+                    <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-white/5 rounded-full blur-[80px] animate-float delay-700" />
                 </div>
 
-                {/* Content */}
-                <div className="container relative z-10 text-center text-white">
-                    <div className="max-w-3xl mx-auto">
-                        {/* Badge */}
-                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-8 animate-fade-in">
-                            <span className="text-[#C9A854]">✦</span>
-                            <span className="text-sm font-medium tracking-wide">Cuba, Missouri</span>
+                {/* Content Container */}
+                <div className="container relative z-10 text-center text-white pt-20">
+                    <div className="max-w-4xl mx-auto">
+                        {/* Location Badge */}
+                        <div className="inline-flex items-center gap-2 px-6 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20 mb-10 animate-fade-in shadow-lg">
+                            <span className="text-[#D4A84B] animate-pulse">✦</span>
+                            <span className="text-sm font-medium tracking-widest uppercase">Cuba, Missouri</span>
                         </div>
 
-                        {/* Logo */}
-                        <div className="mb-8 animate-fade-in-up">
+                        {/* Logo - Increased Size for Visibility */}
+                        <div className="mb-10 animate-fade-in-up">
                             <img
                                 src="/images/logo.png"
                                 alt="Pure Diamond Massage"
-                                className="mx-auto h-24 md:h-32 w-auto brightness-0 invert drop-shadow-2xl"
+                                className="mx-auto h-32 md:h-40 w-auto brightness-0 invert drop-shadow-2xl hover:scale-105 transition-transform duration-500"
                             />
                         </div>
 
-                        {/* Headline */}
-                        <h1 className="text-white mb-6 animate-fade-in-up delay-100">
-                            Where Healing Meets <span className="text-[#C9A854]">Tranquility</span>
+                        {/* Headline - High Contrast, Elegant Typography */}
+                        <h1 className="text-white mb-8 animate-fade-in-up delay-200 drop-shadow-lg leading-tight">
+                            Where Healing Meets <span className="text-gradient font-serif italic">Tranquility</span>
                         </h1>
 
-                        {/* Subheadline */}
-                        <p className="text-xl md:text-2xl text-white/80 mb-10 leading-relaxed animate-fade-in-up delay-200">
+                        {/* Subheadline - Readable Max Width */}
+                        <p className="text-xl md:text-2xl text-white/90 mb-12 leading-relaxed animate-fade-in-up delay-300 max-w-2xl mx-auto font-light">
                             Experience personalized massage therapy in a serene environment,
                             designed to relieve tension and restore your natural balance.
                         </p>
 
-                        {/* CTAs */}
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up delay-300">
-                            <Link href="/contact" className="btn btn-secondary">
+                        {/* Call to Actions - Improved Buttons */}
+                        <div className="flex flex-col sm:flex-row gap-6 justify-center animate-fade-in-up delay-500">
+                            <Link href="/contact" className="btn btn-primary min-w-[200px]">
                                 Book Your Session
                             </Link>
-                            <Link href="/services" className="btn btn-ghost">
+                            <Link href="/services" className="btn btn-ghost min-w-[200px]">
                                 Explore Services
                             </Link>
                         </div>
 
-                        {/* Trust Indicator */}
-                        <div className="mt-16 flex items-center justify-center gap-8 text-white/60 text-sm animate-fade-in delay-500">
-                            <div className="flex items-center gap-2">
-                                <span className="text-[#C9A854]">★★★★★</span>
-                                <span>5-Star Reviews</span>
+                        {/* Trust Indicators */}
+                        <div className="mt-20 flex flex-wrap items-center justify-center gap-8 md:gap-16 text-white/80 text-sm animate-fade-in delay-700">
+                            <div className="flex items-center gap-3 bg-white/5 px-4 py-2 rounded-full backdrop-blur-sm border border-white/10">
+                                <span className="text-[#D4A84B]">★★★★★</span>
+                                <span className="font-medium">5-Star Reviews</span>
                             </div>
-                            <div className="hidden sm:block w-px h-4 bg-white/20" />
-                            <div className="hidden sm:flex items-center gap-2">
-                                <span>✓</span>
-                                <span>Licensed Therapist</span>
+                            <div className="hidden md:block w-px h-8 bg-white/20" />
+                            <div className="flex items-center gap-3 bg-white/5 px-4 py-2 rounded-full backdrop-blur-sm border border-white/10">
+                                <span className="text-[#5A8A5E]">✓</span>
+                                <span className="font-medium">Licensed Therapist</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                {/* Scroll Indicator */}
-                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/40 animate-bounce">
-                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-                    </svg>
-                </div>
+                {/* Geometric Divider at Bottom */}
+                <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-[#FFFEF9] to-transparent z-10" />
             </section>
 
-            {/* Services Section */}
-            <section className="section bg-[#FAF8F5]">
+            {/* Services Section with Clickable Cards */}
+            <section className="section bg-cream relative z-20">
                 <div className="container">
                     {/* Section Header */}
-                    <div className="text-center max-w-2xl mx-auto mb-16">
-                        <span className="badge mb-4">Our Services</span>
-                        <h2 className="mb-4">Tailored Treatments for Your Wellbeing</h2>
-                        <div className="divider mb-6" />
-                        <p className="text-lg">
+                    <div className="text-center max-w-2xl mx-auto mb-20">
+                        <span className="badge mb-6">Our Services</span>
+                        <h2 className="mb-6 text-charcoal">Tailored Treatments</h2>
+                        <div className="divider mb-8" />
+                        <p className="text-lg text-gray">
                             Each session is carefully customized to address your unique needs,
                             whether you seek relaxation, recovery, or relief.
                         </p>
                     </div>
 
-                    {/* Services Grid */}
+                    {/* Services Grid - Now Clickable */}
                     <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                         {services.map((service, index) => (
-                            <div
+                            <Link
+                                href={service.link}
                                 key={service.name}
-                                className="card group cursor-pointer"
+                                className="card group block relative overflow-hidden"
                             >
-                                <div className="flex items-start gap-4">
-                                    <div className="w-14 h-14 flex items-center justify-center text-2xl bg-[#FAF8F5] rounded-xl group-hover:bg-[#3D2B4F] group-hover:scale-110 transition-all duration-300">
-                                        <span className="group-hover:brightness-0 group-hover:invert transition-all duration-300">
+                                <div className="absolute top-0 right-0 p-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                    <span className="w-8 h-8 flex items-center justify-center bg-[#D4A84B] rounded-full text-white">
+                                        →
+                                    </span>
+                                </div>
+                                <div className="flex items-start gap-5">
+                                    <div className="w-16 h-16 flex-shrink-0 flex items-center justify-center text-3xl bg-cream-dark rounded-2xl group-hover:bg-[#2D1F3D] group-hover:scale-110 transition-all duration-300 shadow-inner">
+                                        <span className="group-hover:brightness-0 group-hover:invert transition-all duration-300 filter">
                                             {service.icon}
                                         </span>
                                     </div>
                                     <div className="flex-1">
-                                        <h3 className="text-xl mb-2 group-hover:text-[#3D2B4F] transition-colors">
+                                        <h3 className="text-xl font-bold mb-3 text-charcoal group-hover:text-[#2D1F3D] transition-colors">
                                             {service.name}
                                         </h3>
-                                        <p className="text-sm mb-3">{service.description}</p>
-                                        <span className="text-xs font-medium text-[#C9A854] uppercase tracking-wider">
+                                        <p className="text-sm text-gray mb-4 leading-relaxed group-hover:text-charcoal transition-colors">
+                                            {service.description}
+                                        </p>
+                                        <span className="text-xs font-bold text-[#D4A84B] uppercase tracking-wider bg-[#D4A84B]/10 px-3 py-1 rounded-full">
                                             {service.duration}
                                         </span>
                                     </div>
                                 </div>
-                            </div>
+                            </Link>
                         ))}
                     </div>
 
-                    {/* CTA */}
-                    <div className="text-center mt-12">
-                        <Link href="/services" className="btn btn-primary">
-                            View All Services & Pricing
+                    {/* View All CTA */}
+                    <div className="text-center mt-16">
+                        <Link href="/services" className="btn btn-outline hover:bg-[#2D1F3D] hover:border-[#2D1F3D] hover:text-white transition-all duration-300">
+                            View Full Menu & Pricing
                         </Link>
                     </div>
                 </div>
             </section>
 
-            {/* About Section */}
-            <section className="section bg-white">
-                <div className="container">
-                    <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* About Section - Redesigned Layout */}
+            <section className="section bg-white relative overflow-hidden">
+                {/* Decorative Background Blob */}
+                <div className="absolute right-0 top-1/4 w-[600px] h-[600px] bg-[#D4A84B]/5 rounded-full blur-[120px] pointer-events-none" />
+
+                <div className="container relative z-10">
+                    <div className="grid lg:grid-cols-2 gap-20 items-center">
                         {/* Image/Quote Column */}
-                        <div className="relative">
-                            <div className="bg-gradient-to-br from-[#3D2B4F] to-[#5A4570] rounded-2xl p-10 md:p-14 text-white">
-                                <div className="text-[#C9A854] text-5xl mb-6 font-serif">"</div>
-                                <p className="text-xl md:text-2xl font-display italic leading-relaxed mb-8">
+                        <div className="relative animate-slide-right">
+                            <div className="bg-gradient-to-br from-[#2D1F3D] to-[#4A3660] rounded-[2rem] p-10 md:p-14 text-white shadow-2xl transform rotate-1 hover:rotate-0 transition-transform duration-500">
+                                <div className="text-[#D4A84B] text-6xl mb-8 font-serif leading-none">"</div>
+                                <p className="text-2xl font-display italic leading-relaxed mb-10 text-white/95">
                                     My goal is to create a sanctuary where your body feels safe
                                     enough to release tension and begin true healing.
                                 </p>
-                                <div className="flex items-center gap-4">
-                                    <div className="w-14 h-14 bg-[#C9A854] rounded-full flex items-center justify-center text-[#3D2B4F] font-display text-2xl font-bold">
+                                <div className="flex items-center gap-5 border-t border-white/10 pt-8">
+                                    <div className="w-16 h-16 bg-[#D4A84B] rounded-full flex items-center justify-center text-[#2D1F3D] font-display text-3xl font-bold shadow-lg">
                                         D
                                     </div>
                                     <div>
-                                        <p className="font-semibold text-white">Diamond Payne</p>
-                                        <p className="text-white/60 text-sm">Licensed Massage Therapist</p>
+                                        <p className="font-bold text-lg text-white">Diamond Payne</p>
+                                        <p className="text-[#D4A84B] text-sm uppercase tracking-wider font-medium">Licensed Massage Therapist</p>
                                     </div>
                                 </div>
                             </div>
-                            {/* Decorative element */}
-                            <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-[#C9A854]/20 rounded-full blur-2xl -z-10" />
                         </div>
 
                         {/* Content Column */}
-                        <div>
-                            <span className="badge mb-4">About</span>
-                            <h2 className="mb-6">Meet Your Therapist</h2>
-                            <p className="text-lg mb-6">
+                        <div className="animate-slide-left">
+                            <span className="badge mb-6">About the Therapist</span>
+                            <h2 className="mb-8 text-charcoal">Meet Diamond Payne</h2>
+                            <p className="text-lg mb-6 leading-relaxed text-gray">
                                 Diamond Payne is a graduate of The Healing Arts Center in Saint Louis,
                                 bringing fresh expertise and a genuine passion for holistic wellness
                                 to the Cuba, Missouri community.
                             </p>
-                            <p className="mb-8">
-                                With specialized training in myofascial release and deep tissue techniques,
+                            <p className="mb-10 leading-relaxed text-gray">
+                                With specialized training in <span className="font-semibold text-[#2D1F3D]">myofascial release</span> and <span className="font-semibold text-[#2D1F3D]">deep tissue techniques</span>,
                                 Diamond creates personalized treatment plans that address each client's
                                 unique needs—whether recovering from injury, managing chronic pain,
                                 or simply seeking moments of profound relaxation.
                             </p>
 
-                            {/* Credentials */}
-                            <div className="grid grid-cols-2 gap-4 mb-8">
-                                <div className="flex items-center gap-3">
-                                    <span className="w-10 h-10 bg-[#7A9E7E]/20 rounded-full flex items-center justify-center text-[#7A9E7E]">✓</span>
-                                    <span className="text-sm font-medium">Licensed & Certified</span>
-                                </div>
-                                <div className="flex items-center gap-3">
-                                    <span className="w-10 h-10 bg-[#7A9E7E]/20 rounded-full flex items-center justify-center text-[#7A9E7E]">✓</span>
-                                    <span className="text-sm font-medium">Myofascial Specialist</span>
-                                </div>
-                                <div className="flex items-center gap-3">
-                                    <span className="w-10 h-10 bg-[#7A9E7E]/20 rounded-full flex items-center justify-center text-[#7A9E7E]">✓</span>
-                                    <span className="text-sm font-medium">Custom Treatments</span>
-                                </div>
-                                <div className="flex items-center gap-3">
-                                    <span className="w-10 h-10 bg-[#7A9E7E]/20 rounded-full flex items-center justify-center text-[#7A9E7E]">✓</span>
-                                    <span className="text-sm font-medium">Healing Arts Graduate</span>
-                                </div>
-                            </div>
-
-                            <Link href="/about" className="btn btn-outline">
-                                Learn More About Diamond
+                            <Link href="/about" className="btn btn-secondary group">
+                                Read More About Diamond
+                                <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
                             </Link>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Testimonial/Social Proof Section */}
-            <section className="py-20 bg-[#FAF8F5]">
-                <div className="container">
-                    <div className="max-w-4xl mx-auto text-center">
-                        <div className="text-[#C9A854] text-5xl mb-6">★★★★★</div>
-                        <h2 className="mb-8">Trusted by the Cuba Community</h2>
-                        <p className="text-xl text-gray mb-4">
-                            "Absolutely amazing experience. Diamond truly listens to what your body
-                            needs and delivers exactly that. I left feeling like a new person."
-                        </p>
-                        <p className="text-sm text-gray-light font-medium">— Satisfied Client</p>
-
-                        <div className="mt-12 flex items-center justify-center gap-12 text-center">
-                            <div>
-                                <div className="text-4xl font-display font-bold text-[#3D2B4F]">100%</div>
-                                <div className="text-sm text-gray mt-1">5-Star Reviews</div>
-                            </div>
-                            <div className="w-px h-12 bg-[#3D2B4F]/10" />
-                            <div>
-                                <div className="text-4xl font-display font-bold text-[#3D2B4F]">6+</div>
-                                <div className="text-sm text-gray mt-1">Massage Modalities</div>
-                            </div>
-                            <div className="w-px h-12 bg-[#3D2B4F]/10" />
-                            <div>
-                                <div className="text-4xl font-display font-bold text-[#3D2B4F]">∞</div>
-                                <div className="text-sm text-gray mt-1">Dedication to Healing</div>
-                            </div>
-                        </div>
-                    </div>
+            {/* Social Proof Section */}
+            <section className="py-24 bg-[#2D1F3D] text-white relative overflow-hidden">
+                <div className="absolute inset-0 bg-[url('/images/pattern.png')] opacity-5" />
+                <div className="container relative z-10 text-center">
+                    <div className="text-[#D4A84B] text-4xl mb-8 animate-bounce">★★★★★</div>
+                    <h2 className="mb-10 text-white text-3xl md:text-5xl">Trusted by the Community</h2>
+                    <blockquote className="text-xl md:text-2xl text-white/80 max-w-4xl mx-auto mb-8 font-light italic leading-relaxed">
+                        "Absolutely amazing experience. Diamond truly listens to what your body
+                        needs and delivers exactly that. I left feeling like a new person."
+                    </blockquote>
+                    <cite className="text-[#D4A84B] font-medium not-italic tracking-wider uppercase text-sm">— Satisfied Client</cite>
                 </div>
             </section>
 
-            {/* Location & CTA Section */}
-            <section className="section bg-white">
+            {/* CTA Section */}
+            <section className="section bg-cream">
                 <div className="container">
-                    <div className="bg-gradient-to-br from-[#3D2B4F] to-[#5A4570] rounded-3xl p-10 md:p-16 text-white text-center">
-                        <span className="inline-block px-4 py-1 bg-[#C9A854] text-[#3D2B4F] text-sm font-semibold rounded-full mb-6">
-                            Visit Us
-                        </span>
-                        <h2 className="text-white mb-6">Begin Your Wellness Journey</h2>
-                        <p className="text-xl text-white/80 max-w-2xl mx-auto mb-8">
-                            Located in the heart of Cuba, Missouri. Sessions are by appointment only
-                            to ensure you receive our undivided attention and care.
-                        </p>
+                    <div className="bg-white rounded-[3rem] p-10 md:p-20 text-center shadow-xl border border-gray-100 relative overflow-hidden">
+                        <div className="absolute top-0 right-0 w-64 h-64 bg-[#D4A84B]/10 rounded-bl-full" />
+                        <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#2D1F3D]/5 rounded-tr-full" />
 
-                        <div className="grid md:grid-cols-3 gap-8 max-w-3xl mx-auto mb-10">
-                            <div className="text-center">
-                                <div className="text-3xl mb-3">📍</div>
-                                <div className="text-white/90 font-medium">108 Downey Place</div>
-                                <div className="text-white/60 text-sm">Cuba, MO 65453</div>
-                            </div>
-                            <div className="text-center">
-                                <div className="text-3xl mb-3">📞</div>
-                                <a href="tel:6363007711" className="text-white/90 font-medium hover:text-[#C9A854] transition-colors">
-                                    (636) 300-7711
-                                </a>
-                                <div className="text-white/60 text-sm">Call or Text</div>
-                            </div>
-                            <div className="text-center">
-                                <div className="text-3xl mb-3">🕐</div>
-                                <div className="text-white/90 font-medium">By Appointment</div>
-                                <div className="text-white/60 text-sm">Flexible Scheduling</div>
-                            </div>
+                        <div className="relative z-10">
+                            <span className="text-[#D4A84B] font-bold tracking-widest uppercase text-sm mb-4 block">Ready to Relax?</span>
+                            <h2 className="mb-8 text-charcoal">Begin Your Wellness Journey</h2>
+                            <p className="text-xl text-gray max-w-2xl mx-auto mb-10 leading-relaxed">
+                                Located in the heart of Cuba, Missouri. Sessions are by appointment only
+                                to ensure you receive our undivided attention.
+                            </p>
+                            <Link href="/contact" className="btn btn-primary text-lg px-10 py-4">
+                                Schedule Your Appointment
+                            </Link>
                         </div>
-
-                        <Link href="/contact" className="btn btn-secondary">
-                            Schedule Your Appointment
-                        </Link>
                     </div>
                 </div>
             </section>
 
             <Footer />
-        </>
+        </main>
     );
 }
