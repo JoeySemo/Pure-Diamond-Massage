@@ -80,12 +80,13 @@ export default function Home() {
                             <span className="text-sm font-medium tracking-widest uppercase">Cuba, Missouri</span>
                         </div>
 
-                        {/* Logo */}
+                        {/* Logo - FORCED HEIGHT TO PREVENT LAYOUT BLOWOUT */}
                         <div className="mb-8 animate-fade-in-up">
                             <img
                                 src="/images/logo.png"
                                 alt="Pure Diamond Massage"
                                 className="mx-auto h-28 md:h-36 w-auto brightness-0 invert drop-shadow-2xl hover:scale-105 transition-transform duration-500"
+                                style={{ height: '9rem', width: 'auto' }}
                             />
                         </div>
 
