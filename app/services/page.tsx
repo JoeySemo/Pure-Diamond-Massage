@@ -1,55 +1,55 @@
-import Link from 'next/link';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
+import Link from 'next/link';
 
 export const metadata = {
     title: 'Our Services | Pure Diamond Massage',
-    description: 'Professional massage therapy services including Swedish massage, deep tissue, myofascial massage, sports massage, reflexology, and cupping in Cuba, MO.',
+    description: 'Explore our range of massage therapy services including Swedish, Deep Tissue, Myofascial Release, Sports Massage, Reflexology, and Cupping.',
 };
 
 export default function ServicesPage() {
     const services = [
         {
             name: 'Swedish Massage',
-            icon: '🌊',
-            description: 'The classic massage therapy technique that promotes deep relaxation and stress relief.',
-            details: 'Swedish massage uses long, flowing strokes with gentle to moderate pressure. This technique improves circulation, reduces muscle tension, and promotes overall relaxation. Perfect for those new to massage therapy or seeking a calming, restorative experience.',
-            benefits: ['Reduces stress and anxiety', 'Improves circulation', 'Promotes relaxation', 'Relieves muscle tension']
+            description: 'The classic relaxation massage. Long, flowing strokes combined with gentle kneading promote deep relaxation, improve circulation, and ease muscle tension. Perfect for those new to massage or seeking pure relaxation.',
+            icon: '🌿',
+            duration: '60-90 min',
+            benefits: ['Deep Relaxation', 'Improved Circulation', 'Stress Relief', 'Better Sleep']
         },
         {
             name: 'Deep Tissue Massage',
-            icon: '💪',
-            description: 'Intensive therapy targeting chronic muscle tension and deep-seated knots.',
-            details: 'Deep tissue massage uses slower strokes and firm pressure to reach deeper layers of muscle and connective tissue. This technique is especially effective for chronic aches and pains, contracted areas like stiff neck, upper back, low back pain, and sore shoulders.',
-            benefits: ['Relieves chronic pain', 'Breaks up scar tissue', 'Improves mobility', 'Reduces inflammation']
+            description: 'Focused pressure targets the deeper layers of muscle and connective tissue. Ideal for releasing chronic patterns of tension, breaking up scar tissue, and addressing stubborn knots that resist lighter work.',
+            icon: '💎',
+            duration: '60-90 min',
+            benefits: ['Chronic Pain Relief', 'Muscle Recovery', 'Improved Mobility', 'Tension Release']
         },
         {
-            name: 'Myofascial Massage',
-            icon: '🎯',
-            description: 'Specialized technique focusing on releasing fascial restrictions.',
-            details: 'Myofascial release is a safe and effective hands-on technique that involves applying gentle sustained pressure to the myofascial connective tissue restrictions. This helps eliminate pain and restore motion, allowing the body to heal naturally.',
-            benefits: ['Improves range of motion', 'Reduces pain', 'Enhances flexibility', 'Promotes healing']
+            name: 'Myofascial Release',
+            description: 'A specialized technique that focuses on releasing fascial restrictions throughout the body. By applying gentle, sustained pressure, this work can restore mobility, reduce pain, and improve overall function.',
+            icon: '✨',
+            duration: '60-90 min',
+            benefits: ['Fascial Release', 'Pain Reduction', 'Increased Range of Motion', 'Postural Improvement']
         },
         {
             name: 'Sports Massage',
+            description: 'Designed for athletes and active individuals, this therapeutic approach combines techniques to enhance performance, prevent injury, and speed recovery. Tailored to your specific sport and training cycle.',
             icon: '⚡',
-            description: 'Performance-focused therapy designed for athletes and active individuals.',
-            details: 'Sports massage combines various techniques to enhance athletic performance, prevent injuries, and support recovery. Whether you\'re training for competition or staying active, sports massage helps maintain peak physical condition.',
-            benefits: ['Enhances performance', 'Prevents injuries', 'Speeds recovery', 'Increases flexibility']
+            duration: '60-90 min',
+            benefits: ['Performance Enhancement', 'Injury Prevention', 'Faster Recovery', 'Flexibility']
         },
         {
             name: 'Reflexology',
+            description: 'This focused foot therapy applies pressure to specific reflex points that correspond to organs and systems throughout the body. A deeply relaxing treatment that promotes whole-body balance and wellness.',
             icon: '🦶',
-            description: 'Pressure point therapy on the feet promoting whole-body wellness.',
-            details: 'Reflexology is based on the principle that reflex points on the feet correspond to different organs and systems in the body. By applying pressure to these points, reflexology promotes healing and balance throughout the entire body.',
-            benefits: ['Promotes relaxation', 'Improves circulation', 'Supports body balance', 'Reduces pain']
+            duration: '30-60 min',
+            benefits: ['Whole-Body Balance', 'Stress Reduction', 'Improved Sleep', 'Enhanced Wellbeing']
         },
         {
             name: 'Cupping Therapy',
+            description: 'An ancient healing technique that uses suction cups to lift tissue, increase blood flow, and promote healing. Often combined with massage for enhanced therapeutic benefits. Available as a standalone or add-on service.',
             icon: '🔮',
-            description: 'Ancient healing practice using suction to enhance circulation.',
-            details: 'Cupping therapy involves placing special cups on the skin to create suction. This ancient technique helps improve blood flow, reduce inflammation, promote cell repair, and create new connective tissues. It\'s excellent for pain relief and relaxation.',
-            benefits: ['Increases blood flow', 'Reduces inflammation', 'Relieves muscle tension', 'Promotes healing']
+            duration: 'Add-on',
+            benefits: ['Increased Blood Flow', 'Muscle Recovery', 'Detoxification', 'Pain Relief']
         }
     ];
 
@@ -58,66 +58,92 @@ export default function ServicesPage() {
             <Navigation />
 
             {/* Hero Section */}
-            <section className="pt-32 pb-20 bg-gradient-to-br from-[hsl(280,40%,25%)] to-[hsl(280,35%,35%)] text-white">
-                <div className="container text-center">
-                    <h1 className="text-white mb-6">Our Services</h1>
-                    <p className="text-xl text-white/90 max-w-3xl mx-auto">
-                        Personalized massage therapy tailored to your unique needs. Whether you\'re recovering
-                        from chronic pain, healing from an injury, or seeking deep relaxation, Diamond has the
-                        expertise to help.
-                    </p>
+            <section className="relative pt-32 pb-20 bg-gradient-to-br from-[#3D2B4F] via-[#5A4570] to-[#3D2B4F] text-white overflow-hidden">
+                <div className="absolute inset-0">
+                    <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-[#C9A854]/10 rounded-full blur-3xl" />
+                </div>
+                <div className="container relative z-10">
+                    <div className="max-w-3xl mx-auto text-center">
+                        <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full border border-white/20 mb-6">
+                            <span className="text-[#C9A854]">✦</span>
+                            <span className="text-sm font-medium">Therapeutic Services</span>
+                        </span>
+                        <h1 className="text-white mb-6">Our Services</h1>
+                        <p className="text-xl text-white/80 leading-relaxed">
+                            Each treatment is customized to your unique needs, combining expert technique
+                            with genuine care to support your journey toward healing and wellness.
+                        </p>
+                    </div>
                 </div>
             </section>
 
-            {/* Services Detail Section */}
-            <section className="section-padding">
+            {/* Services List */}
+            <section className="section bg-[#FAF8F5]">
                 <div className="container">
-                    <div className="space-y-16">
+                    <div className="space-y-8">
                         {services.map((service, index) => (
                             <div
                                 key={service.name}
-                                className={`flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-8 items-center`}
+                                className="bg-white rounded-2xl p-8 md:p-10 shadow-sm hover:shadow-lg transition-shadow duration-300"
                             >
-                                <div className="flex-1">
-                                    <div className="card">
-                                        <div className="text-6xl mb-4">{service.icon}</div>
-                                        <h2 className="text-3xl mb-4">{service.name}</h2>
-                                        <p className="text-xl text-gray-700 mb-4">{service.description}</p>
-                                        <p className="text-gray-600 mb-6">{service.details}</p>
-
-                                        <div className="bg-[hsl(145,25%,88%)] p-6 rounded-lg">
-                                            <h4 className="font-semibold text-lg mb-3">Benefits:</h4>
-                                            <ul className="grid md:grid-cols-2 gap-2">
-                                                {service.benefits.map(benefit => (
-                                                    <li key={benefit} className="flex items-center gap-2">
-                                                        <span className="text-[hsl(145,20%,45%)]">✓</span>
-                                                        <span>{benefit}</span>
-                                                    </li>
-                                                ))}
-                                            </ul>
+                                <div className="grid md:grid-cols-12 gap-8 items-start">
+                                    {/* Icon */}
+                                    <div className="md:col-span-1">
+                                        <div className="w-16 h-16 flex items-center justify-center text-3xl bg-[#FAF8F5] rounded-xl">
+                                            {service.icon}
                                         </div>
+                                    </div>
+
+                                    {/* Content */}
+                                    <div className="md:col-span-7">
+                                        <div className="flex items-center gap-3 mb-3">
+                                            <h2 className="text-2xl">{service.name}</h2>
+                                            <span className="text-xs font-semibold px-3 py-1 bg-[#C9A854]/20 text-[#A68B3D] rounded-full uppercase tracking-wider">
+                                                {service.duration}
+                                            </span>
+                                        </div>
+                                        <p className="text-gray leading-relaxed">
+                                            {service.description}
+                                        </p>
+                                    </div>
+
+                                    {/* Benefits */}
+                                    <div className="md:col-span-4">
+                                        <h4 className="text-sm font-semibold uppercase tracking-wider text-[#3D2B4F] mb-3">
+                                            Benefits
+                                        </h4>
+                                        <ul className="space-y-2">
+                                            {service.benefits.map((benefit) => (
+                                                <li key={benefit} className="flex items-center gap-2 text-sm text-gray">
+                                                    <span className="text-[#7A9E7E]">✓</span>
+                                                    {benefit}
+                                                </li>
+                                            ))}
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
                         ))}
                     </div>
+                </div>
+            </section>
 
-                    {/* CTA Section */}
-                    <div className="mt-20 text-center">
-                        <div className="glass p-12 rounded-2xl max-w-3xl mx-auto">
-                            <h3 className="text-3xl mb-4">Ready to Experience Relief?</h3>
-                            <p className="text-xl text-gray-600 mb-8">
-                                Each session is personalized to your specific needs and goals.
-                                Book your appointment today and start your journey to wellness.
-                            </p>
-                            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                                <Link href="/contact" className="btn btn-primary text-lg">
-                                    Schedule Appointment
-                                </Link>
-                                <a href="tel:6363007711" className="btn btn-outline text-lg">
-                                    Call (636) 300-7711
-                                </a>
-                            </div>
+            {/* Booking CTA */}
+            <section className="section bg-white">
+                <div className="container">
+                    <div className="max-w-3xl mx-auto text-center">
+                        <h2 className="mb-6">Ready to Experience the Difference?</h2>
+                        <p className="text-lg mb-8">
+                            Contact us to discuss your needs and book your personalized session.
+                            We'll help you choose the perfect treatment for your goals.
+                        </p>
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                            <Link href="/contact" className="btn btn-primary">
+                                Book Your Session
+                            </Link>
+                            <a href="tel:6363007711" className="btn btn-outline">
+                                Call (636) 300-7711
+                            </a>
                         </div>
                     </div>
                 </div>
