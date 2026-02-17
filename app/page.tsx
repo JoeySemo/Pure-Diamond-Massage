@@ -3,19 +3,55 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 /* ────────────────────────────────────────────
-   HERO
+   HERO — Animated Ken Burns + Floating Particles
    ──────────────────────────────────────────── */
 function Hero() {
     return (
         <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
-            {/* Background Image */}
+            {/* Animated Background — slow Ken Burns zoom & pan */}
             <div className="absolute inset-0">
-                <img
-                    src="/images/hero.jpg"
-                    alt="Massage therapy session"
-                    className="w-full h-full object-cover"
+                <div
+                    className="absolute inset-0"
+                    style={{
+                        backgroundImage: 'url(/images/hero.jpg)',
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        animation: 'heroKenBurns 20s ease-in-out infinite alternate',
+                    }}
                 />
+                {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-r from-[#5B2D8E]/85 via-[#5B2D8E]/60 to-transparent" />
+
+                {/* Floating bokeh particles */}
+                {[...Array(12)].map((_, i) => (
+                    <div
+                        key={i}
+                        className="absolute rounded-full pointer-events-none"
+                        style={{
+                            width: `${6 + Math.random() * 14}px`,
+                            height: `${6 + Math.random() * 14}px`,
+                            left: `${5 + (i * 8) % 90}%`,
+                            bottom: `-${20 + Math.random() * 10}px`,
+                            background: i % 3 === 0
+                                ? 'rgba(42, 157, 143, 0.35)'
+                                : i % 3 === 1
+                                    ? 'rgba(255, 255, 255, 0.2)'
+                                    : 'rgba(91, 45, 142, 0.3)',
+                            filter: 'blur(1px)',
+                            animation: `floatUp ${8 + (i % 5) * 3}s ease-in-out ${i * 1.5}s infinite`,
+                        }}
+                    />
+                ))}
+
+                {/* Subtle shimmer sweep */}
+                <div
+                    className="absolute inset-0 pointer-events-none"
+                    style={{
+                        background: 'linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.06) 50%, transparent 60%)',
+                        backgroundSize: '200% 100%',
+                        animation: 'shimmer 8s ease-in-out infinite',
+                    }}
+                />
             </div>
 
             {/* Content */}

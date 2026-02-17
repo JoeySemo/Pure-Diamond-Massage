@@ -27,30 +27,30 @@ export default function Header() {
     return (
         <header
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-                ? 'bg-white shadow-md py-3'
-                : 'bg-white/80 backdrop-blur-sm py-5'
+                ? 'bg-white shadow-md'
+                : 'bg-white/80 backdrop-blur-sm'
                 }`}
         >
-            <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-                {/* Logo */}
-                <a href="#hero" className="flex items-center gap-3 group">
+            <div className="flex items-center justify-between">
+                {/* Logo — flush left, fills full navbar height */}
+                <a href="#hero" className="flex items-center gap-3 group pl-2 md:pl-4">
                     <img
                         src="/images/logo.png"
                         alt="Pure Diamond Massage logo"
-                        className="h-10 w-auto"
+                        className={`w-auto transition-all duration-300 ${scrolled ? 'h-12' : 'h-16 md:h-20'}`}
                     />
                     <div className="flex flex-col leading-tight">
-                        <span className="font-display text-lg font-bold text-[#5B2D8E]">
+                        <span className="font-display text-lg md:text-xl font-bold text-[#5B2D8E]">
                             Pure Diamond
                         </span>
-                        <span className="text-[10px] uppercase tracking-[0.2em] text-[#2A9D8F] font-semibold">
+                        <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-[#2A9D8F] font-semibold">
                             Massage Therapy
                         </span>
                     </div>
                 </a>
 
-                {/* Desktop Nav */}
-                <nav className="hidden md:flex items-center gap-8">
+                {/* Desktop Nav — right side with padding */}
+                <nav className="hidden md:flex items-center gap-8 pr-6">
                     {links.map((link) => (
                         <a
                             key={link.label}
@@ -72,7 +72,7 @@ export default function Header() {
                 {/* Mobile Toggle */}
                 <button
                     onClick={() => setMenuOpen(!menuOpen)}
-                    className="md:hidden relative w-8 h-8 flex items-center justify-center"
+                    className="md:hidden relative w-8 h-8 flex items-center justify-center mr-4"
                     aria-label="Toggle menu"
                 >
                     <span className={`absolute w-6 h-0.5 bg-[#5B2D8E] transition-all duration-300 ${menuOpen ? 'rotate-45' : '-translate-y-1.5'}`} />
