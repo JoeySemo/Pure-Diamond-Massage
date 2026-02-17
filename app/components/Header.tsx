@@ -18,11 +18,11 @@ export default function Header() {
     }, [menuOpen]);
 
     const links = [
-        { label: 'Home', href: '#hero' },
-        { label: 'Services', href: '#services' },
-        { label: 'About', href: '#about' },
-        { label: 'Reviews', href: '#reviews' },
-        { label: 'Contact', href: '#contact' },
+        { label: 'Home', href: '/' },
+        { label: 'Services', href: '/services' },
+        { label: 'About', href: '/about' },
+        { label: 'Reviews', href: '/#reviews' },
+        { label: 'Contact', href: '/#contact' },
     ];
 
     return (
@@ -34,7 +34,7 @@ export default function Header() {
         >
             <div className="flex items-center justify-between">
                 {/* Logo — matching transparent PNG from hero */}
-                <a href="#hero" className="flex items-center gap-2 pl-2 md:pl-4 group">
+                <a href="/" className="flex items-center gap-2 pl-2 md:pl-4 group">
                     <img
                         src="/images/logo-hero.png"
                         alt="Pure Diamond Massage"

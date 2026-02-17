@@ -323,10 +323,10 @@ function Hero() {
                 style={{
                     top: '50%',
                     left: '50%',
-                    width: '620px',
-                    height: '620px',
-                    marginTop: '-310px',
-                    marginLeft: '-310px',
+                    width: '780px',
+                    height: '780px',
+                    marginTop: '-390px',
+                    marginLeft: '-390px',
                 }}
                 animate={{ rotate: 360 }}
                 transition={{ duration: 90, repeat: Infinity, ease: 'linear' }}
@@ -347,14 +347,14 @@ function Hero() {
             {/* Center content — oversized logo + CTAs only */}
             <div className="relative z-10 text-center px-6">
                 {/* Massive logo container */}
-                <div className="relative mx-auto mb-6" style={{ width: '475px', height: '475px', maxWidth: '85vw', maxHeight: '85vw' }}>
+                <div className="relative mx-auto mb-6" style={{ width: '594px', height: '594px', maxWidth: '90vw', maxHeight: '90vw' }}>
                     {/* Outer rotating ring — wider */}
                     <motion.div
                         className="absolute inset-0"
                         animate={{ rotate: 360 }}
                         transition={{ duration: 50, repeat: Infinity, ease: 'linear' }}
                     >
-                        <svg viewBox="0 0 475 475" className="w-full h-full">
+                        <svg viewBox="0 0 594 594" className="w-full h-full">
                             <defs>
                                 <linearGradient id="heroRingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                                     <stop offset="0%" stopColor="#2A9D8F" stopOpacity="0.5" />
@@ -362,8 +362,8 @@ function Hero() {
                                     <stop offset="100%" stopColor="#2A9D8F" stopOpacity="0.5" />
                                 </linearGradient>
                             </defs>
-                            <circle cx="237.5" cy="237.5" r="232" fill="none" stroke="url(#heroRingGrad)" strokeWidth="1" strokeDasharray="12,18" />
-                            <circle cx="237.5" cy="237.5" r="220" fill="none" stroke="url(#heroRingGrad)" strokeWidth="0.5" strokeDasharray="6,22" />
+                            <circle cx="297" cy="297" r="290" fill="none" stroke="url(#heroRingGrad)" strokeWidth="1" strokeDasharray="14,20" />
+                            <circle cx="297" cy="297" r="275" fill="none" stroke="url(#heroRingGrad)" strokeWidth="0.5" strokeDasharray="7,24" />
                         </svg>
                     </motion.div>
 
@@ -373,8 +373,8 @@ function Hero() {
                         animate={{ rotate: -360 }}
                         transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
                     >
-                        <svg viewBox="0 0 430 430" className="w-full h-full">
-                            <circle cx="215" cy="215" r="210" fill="none" stroke="rgba(42,157,143,0.15)" strokeWidth="0.5" strokeDasharray="4,14" />
+                        <svg viewBox="0 0 540 540" className="w-full h-full">
+                            <circle cx="270" cy="270" r="265" fill="none" stroke="rgba(42,157,143,0.15)" strokeWidth="0.5" strokeDasharray="5,16" />
                         </svg>
                     </motion.div>
 
@@ -455,10 +455,10 @@ function Hero() {
                         📞 (636) 300-7711
                     </a>
                     <a
-                        href="#services"
+                        href="/services"
                         className="inline-flex items-center justify-center px-8 py-4 rounded-full border-2 border-white/25 text-white font-semibold hover:bg-white/10 transition-all"
                     >
-                        View Services ↓
+                        View Services →
                     </a>
                 </motion.div>
 
@@ -915,8 +915,6 @@ export default function Home() {
     return (
         <main>
             <Hero />
-            <MeetDiamond />
-            <Services />
             <Reviews />
             <Contact />
         </main>
