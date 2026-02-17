@@ -47,7 +47,7 @@ function FloatingLeaf({ delay, x, size, dur }: { delay: number; x: number; size:
 
 function Hero() {
     return (
-        <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <section id="hero" className="relative min-h-[130vh] flex items-start justify-center overflow-hidden pt-40 md:pt-48">
             {/* Deep gradient background */}
             <div
                 className="absolute inset-0"
@@ -79,13 +79,14 @@ function Hero() {
             />
 
             {/* Floating leaves */}
-            {Array.from({ length: 14 }).map((_, i) => (
+            {/* Floating leaves — increased count for taller hero */}
+            {Array.from({ length: 24 }).map((_, i) => (
                 <FloatingLeaf
                     key={i}
-                    delay={i * 1.8}
-                    x={3 + (i * 7.5) % 94}
-                    size={8 + (i % 4) * 4}
-                    dur={12 + (i % 5) * 3}
+                    delay={i * 1.2}
+                    x={2 + (i * 4.5) % 96}
+                    size={6 + (i % 5) * 4}
+                    dur={15 + (i % 7) * 4}
                 />
             ))}
 
@@ -463,14 +464,7 @@ function Hero() {
                 </motion.div>
 
                 {/* Helper text */}
-                <motion.p
-                    className="mt-5 text-white/35 text-sm"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1.5 }}
-                >
-                    Message or text to book your appointment
-                </motion.p>
+
             </div>
 
             {/* Bottom fade to white */}
@@ -909,12 +903,48 @@ function Contact() {
 }
 
 /* ────────────────────────────────────────────
+   GIFT CERTIFICATES (Moved from Services)
+   ──────────────────────────────────────────── */
+function GiftCertificates() {
+    return (
+        <section className="py-16 px-6 md:px-12 bg-white">
+            <div className="max-w-5xl mx-auto">
+                <div className="rounded-2xl overflow-hidden relative">
+                    <img
+                        src="/images/gift-certificate.jpg"
+                        alt="Gift certificates available"
+                        className="w-full h-64 md:h-80 object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#5B2D8E]/90 to-transparent flex items-center">
+                        <div className="px-8 md:px-16">
+                            <h3 className="font-display text-3xl md:text-4xl font-bold text-white mb-3">
+                                Gift Certificates Available
+                            </h3>
+                            <p className="text-white/90 text-lg mb-6 max-w-md">
+                                The perfect gift for someone who deserves luxury and relaxation. Available in 30, 60, and 90 minute sessions.
+                            </p>
+                            <a
+                                href="tel:6363007711"
+                                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#2A9D8F] text-white font-semibold hover:bg-[#248F83] transition-colors shadow-lg"
+                            >
+                                📞 Call to Purchase
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+}
+
+/* ────────────────────────────────────────────
    PAGE
    ──────────────────────────────────────────── */
 export default function Home() {
     return (
         <main>
             <Hero />
+            <GiftCertificates />
             <Reviews />
             <Contact />
         </main>

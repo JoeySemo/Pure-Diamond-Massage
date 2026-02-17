@@ -376,8 +376,8 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
             viewport={{ once: true }}
             transition={{ delay: index * 0.1, duration: 0.5 }}
             className={`bg-white rounded-2xl border transition-all duration-300 cursor-pointer overflow-hidden ${expanded
-                    ? 'border-[#2A9D8F]/30 shadow-xl shadow-[#2A9D8F]/5'
-                    : 'border-gray-100 hover:border-[#2A9D8F]/20 hover:shadow-lg hover:-translate-y-1'
+                ? 'border-[#2A9D8F]/30 shadow-xl shadow-[#2A9D8F]/5'
+                : 'border-gray-100 hover:border-[#2A9D8F]/20 hover:shadow-lg hover:-translate-y-1'
                 }`}
             onClick={() => setExpanded(!expanded)}
         >
@@ -607,34 +607,7 @@ export default function ServicesPage() {
                 </div>
             </section>
 
-            {/* Gift Certificates */}
-            <section className="px-6 md:px-12 pb-16 bg-white">
-                <div className="max-w-5xl mx-auto">
-                    <div className="rounded-2xl overflow-hidden relative">
-                        <img
-                            src="/images/gift-certificate.jpg"
-                            alt="Gift certificates available"
-                            className="w-full h-64 md:h-80 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-r from-[#5B2D8E]/80 to-transparent flex items-center">
-                            <div className="px-8 md:px-16">
-                                <h3 className="font-display text-3xl md:text-4xl font-bold text-white mb-3">
-                                    Gift Certificates Available
-                                </h3>
-                                <p className="text-white/80 text-lg mb-6 max-w-md">
-                                    The perfect gift for someone who deserves luxury and relaxation. Available in 30, 60, and 90 minute sessions.
-                                </p>
-                                <a
-                                    href="tel:6363007711"
-                                    className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#2A9D8F] text-white font-semibold hover:bg-[#248F83] transition-colors"
-                                >
-                                    📞 Call to Purchase
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+
 
             {/* Contact Footer */}
             <section
