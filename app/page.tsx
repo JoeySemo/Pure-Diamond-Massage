@@ -127,87 +127,186 @@ function Hero() {
                 }}
             />
 
-            {/* Center content — logo + text */}
+            {/* Flowing aurora band — healing energy */}
+            <motion.div
+                className="absolute pointer-events-none"
+                style={{
+                    top: '30%',
+                    left: '-20%',
+                    width: '140%',
+                    height: '200px',
+                    background: 'linear-gradient(90deg, transparent, rgba(42,157,143,0.08), rgba(91,45,142,0.06), rgba(42,157,143,0.08), transparent)',
+                    filter: 'blur(40px)',
+                    borderRadius: '50%',
+                }}
+                animate={{
+                    y: [0, -30, 20, -10, 0],
+                    rotate: [-2, 2, -1, 1, -2],
+                    scaleY: [1, 1.3, 0.8, 1.1, 1],
+                }}
+                transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
+            />
+
+            {/* Water ripple waves at bottom */}
+            {[0, 1, 2].map((i) => (
+                <motion.div
+                    key={`wave-${i}`}
+                    className="absolute pointer-events-none"
+                    style={{
+                        bottom: `${30 + i * 25}px`,
+                        left: 0,
+                        right: 0,
+                        height: '2px',
+                        background: `linear-gradient(90deg, transparent 0%, rgba(42,157,143,${0.08 - i * 0.02}) 30%, rgba(91,45,142,${0.06 - i * 0.015}) 50%, rgba(42,157,143,${0.08 - i * 0.02}) 70%, transparent 100%)`,
+                        borderRadius: '50%',
+                    }}
+                    animate={{
+                        scaleX: [0.8, 1.1, 0.8],
+                        y: [0, -4, 0],
+                        opacity: [0.4, 0.8, 0.4],
+                    }}
+                    transition={{
+                        duration: 4 + i,
+                        delay: i * 1.2,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                    }}
+                />
+            ))}
+
+            {/* Drifting hot stone shapes */}
+            {[0, 1, 2, 3, 4].map((i) => (
+                <motion.div
+                    key={`stone-${i}`}
+                    className="absolute rounded-full pointer-events-none"
+                    style={{
+                        width: `${20 + i * 6}px`,
+                        height: `${14 + i * 4}px`,
+                        borderRadius: '50%',
+                        border: `1px solid rgba(42,157,143,${0.1 + (i % 3) * 0.05})`,
+                        background: `radial-gradient(ellipse, rgba(42,157,143,0.04) 0%, transparent 70%)`,
+                        left: `${8 + i * 18}%`,
+                        top: `${20 + (i * 17) % 60}%`,
+                    }}
+                    animate={{
+                        y: [0, -20, 10, -15, 0],
+                        x: [0, 15, -10, 5, 0],
+                        rotate: [0, 10, -5, 8, 0],
+                        opacity: [0.3, 0.6, 0.4, 0.7, 0.3],
+                    }}
+                    transition={{
+                        duration: 10 + i * 2,
+                        delay: i * 2,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                    }}
+                />
+            ))}
+
+            {/* Orbiting wellness symbols */}
+            <motion.div
+                className="absolute pointer-events-none"
+                style={{
+                    top: '50%',
+                    left: '50%',
+                    width: '500px',
+                    height: '500px',
+                    marginTop: '-250px',
+                    marginLeft: '-250px',
+                }}
+                animate={{ rotate: 360 }}
+                transition={{ duration: 90, repeat: Infinity, ease: 'linear' }}
+            >
+                {/* Lotus petal */}
+                <svg className="absolute" style={{ top: '-10px', left: '50%', marginLeft: '-10px' }} width="20" height="20" viewBox="0 0 24 24" fill="none">
+                    <path d="M12,2 Q16,8 16,14 Q14,18 12,20 Q10,18 8,14 Q8,8 12,2Z" fill="rgba(42,157,143,0.15)" stroke="rgba(42,157,143,0.25)" strokeWidth="0.5" />
+                </svg>
+                {/* Water drop */}
+                <svg className="absolute" style={{ bottom: '-8px', left: '50%', marginLeft: '-8px' }} width="16" height="20" viewBox="0 0 16 20" fill="none">
+                    <path d="M8,2 Q14,10 12,15 Q10,18 8,18 Q6,18 4,15 Q2,10 8,2Z" fill="rgba(91,45,142,0.12)" stroke="rgba(91,45,142,0.2)" strokeWidth="0.5" />
+                </svg>
+                {/* Yin-yang dot */}
+                <circle className="absolute" style={{ top: '50%', right: '-6px', marginTop: '-6px' }} cx="6" cy="6" r="4" fill="rgba(42,157,143,0.15)" stroke="rgba(42,157,143,0.25)" strokeWidth="0.5">
+                </circle>
+            </motion.div>
+
+            {/* Center content — oversized logo + CTAs only */}
             <div className="relative z-10 text-center px-6">
-                {/* Rotating ring behind logo */}
-                <div className="relative mx-auto mb-8" style={{ width: '220px', height: '220px' }}>
-                    {/* Outer rotating ring */}
+                {/* Massive logo container */}
+                <div className="relative mx-auto mb-6" style={{ width: '380px', height: '380px', maxWidth: '80vw', maxHeight: '80vw' }}>
+                    {/* Outer rotating ring — wider */}
                     <motion.div
                         className="absolute inset-0"
                         animate={{ rotate: 360 }}
-                        transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
+                        transition={{ duration: 50, repeat: Infinity, ease: 'linear' }}
                     >
-                        <svg viewBox="0 0 220 220" className="w-full h-full">
+                        <svg viewBox="0 0 380 380" className="w-full h-full">
                             <defs>
                                 <linearGradient id="heroRingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" stopColor="#2A9D8F" stopOpacity="0.6" />
-                                    <stop offset="50%" stopColor="#5B2D8E" stopOpacity="0.3" />
-                                    <stop offset="100%" stopColor="#2A9D8F" stopOpacity="0.6" />
+                                    <stop offset="0%" stopColor="#2A9D8F" stopOpacity="0.5" />
+                                    <stop offset="50%" stopColor="#5B2D8E" stopOpacity="0.2" />
+                                    <stop offset="100%" stopColor="#2A9D8F" stopOpacity="0.5" />
                                 </linearGradient>
                             </defs>
-                            <circle cx="110" cy="110" r="105" fill="none" stroke="url(#heroRingGrad)" strokeWidth="1" strokeDasharray="8,12" />
-                            <circle cx="110" cy="110" r="95" fill="none" stroke="url(#heroRingGrad)" strokeWidth="0.5" strokeDasharray="4,16" />
+                            <circle cx="190" cy="190" r="185" fill="none" stroke="url(#heroRingGrad)" strokeWidth="1" strokeDasharray="10,15" />
+                            <circle cx="190" cy="190" r="175" fill="none" stroke="url(#heroRingGrad)" strokeWidth="0.5" strokeDasharray="5,20" />
                         </svg>
                     </motion.div>
 
-                    {/* Inner counter-rotating ring */}
+                    {/* Counter-rotating inner ring */}
                     <motion.div
-                        className="absolute inset-4"
+                        className="absolute inset-6"
                         animate={{ rotate: -360 }}
-                        transition={{ duration: 45, repeat: Infinity, ease: 'linear' }}
+                        transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
                     >
-                        <svg viewBox="0 0 180 180" className="w-full h-full">
-                            <circle cx="90" cy="90" r="85" fill="none" stroke="rgba(42,157,143,0.2)" strokeWidth="0.5" strokeDasharray="2,8" />
+                        <svg viewBox="0 0 340 340" className="w-full h-full">
+                            <circle cx="170" cy="170" r="165" fill="none" stroke="rgba(42,157,143,0.15)" strokeWidth="0.5" strokeDasharray="3,12" />
                         </svg>
                     </motion.div>
 
-                    {/* Pulsing glow behind logo */}
+                    {/* Large pulsing glow */}
                     <motion.div
-                        className="absolute inset-8 rounded-full"
+                        className="absolute inset-10 rounded-full"
                         style={{
-                            background: 'radial-gradient(circle, rgba(42,157,143,0.2) 0%, transparent 70%)',
+                            background: 'radial-gradient(circle, rgba(42,157,143,0.15) 0%, rgba(91,45,142,0.08) 50%, transparent 70%)',
                         }}
-                        animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0.8, 0.5] }}
-                        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+                        animate={{ scale: [1, 1.2, 1], opacity: [0.4, 0.7, 0.4] }}
+                        transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
                     />
 
-                    {/* Logo */}
+                    {/* Second glow layer — slower breathe */}
+                    <motion.div
+                        className="absolute inset-16 rounded-full"
+                        style={{
+                            background: 'radial-gradient(circle, rgba(42,157,143,0.1) 0%, transparent 60%)',
+                        }}
+                        animate={{ scale: [1.1, 0.9, 1.1], opacity: [0.3, 0.6, 0.3] }}
+                        transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+                    />
+
+                    {/* LOGO — fills the container */}
                     <motion.div
                         className="absolute inset-0 flex items-center justify-center"
-                        initial={{ opacity: 0, scale: 0.8 }}
+                        initial={{ opacity: 0, scale: 0.7 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 1, ease: 'easeOut' }}
+                        transition={{ duration: 1.2, ease: 'easeOut' }}
                     >
-                        <img
+                        <motion.img
                             src="/images/logo-hero.png"
                             alt="Pure Diamond Massage"
-                            className="w-44 h-44 object-contain"
+                            className="w-full h-full object-contain p-6"
                             style={{
-                                filter: 'drop-shadow(0 0 25px rgba(42,157,143,0.4)) brightness(1.2)',
+                                filter: 'drop-shadow(0 0 30px rgba(42,157,143,0.35)) brightness(1.15)',
                             }}
+                            animate={{ y: [0, -6, 0] }}
+                            transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
                         />
                     </motion.div>
                 </div>
 
-                {/* Title */}
-                <motion.h1
-                    className="font-display text-5xl md:text-7xl font-bold text-white leading-tight mb-4"
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.3 }}
-                >
-                    Pure Diamond<br />
-                    <span
-                        className="bg-clip-text text-transparent"
-                        style={{ backgroundImage: 'linear-gradient(135deg, #2A9D8F, #5BE0D4)' }}
-                    >
-                        Massage
-                    </span>
-                </motion.h1>
-
                 {/* Subtitle */}
                 <motion.p
-                    className="text-white/70 text-lg md:text-xl max-w-xl mx-auto mb-4"
+                    className="text-white/60 text-lg md:text-xl max-w-xl mx-auto mb-3"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, delay: 0.6 }}
@@ -217,7 +316,7 @@ function Hero() {
 
                 {/* Location badge */}
                 <motion.div
-                    className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/15 mb-10"
+                    className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/15 mb-8"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.9 }}
@@ -251,7 +350,7 @@ function Hero() {
 
                 {/* Helper text */}
                 <motion.p
-                    className="mt-6 text-white/40 text-sm"
+                    className="mt-5 text-white/35 text-sm"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 1.5 }}

@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Logo from './Logo';
 
 export default function Header() {
     const [scrolled, setScrolled] = useState(false);
@@ -34,13 +33,21 @@ export default function Header() {
                 }`}
         >
             <div className="flex items-center justify-between">
-                {/* Logo — flush left, max size */}
-                <a href="#hero" className="flex items-center pl-2 md:pl-4 group">
-                    <Logo
-                        size={scrolled ? 44 : 64}
-                        showText={true}
-                        className="transition-all duration-300"
+                {/* Logo — matching transparent PNG from hero */}
+                <a href="#hero" className="flex items-center gap-2 pl-2 md:pl-4 group">
+                    <img
+                        src="/images/logo-hero.png"
+                        alt="Pure Diamond Massage"
+                        className="transition-all duration-300 object-contain"
+                        style={{
+                            height: scrolled ? '40px' : '56px',
+                            width: scrolled ? '40px' : '56px',
+                        }}
                     />
+                    <div className="flex flex-col transition-all duration-300">
+                        <span className="font-display text-sm font-bold text-[#5B2D8E] leading-tight">Pure Diamond</span>
+                        <span className="text-[10px] font-semibold tracking-[0.2em] text-[#2A9D8F] uppercase">Massage Therapy</span>
+                    </div>
                 </a>
 
                 {/* Desktop Nav */}
