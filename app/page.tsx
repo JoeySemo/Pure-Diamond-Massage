@@ -3,101 +3,266 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 /* ────────────────────────────────────────────
-   HERO — Animated Ken Burns + Floating Particles
+   HERO — Logo-Centric Animated Experience
    ──────────────────────────────────────────── */
+
+/* Leaf SVG shape for floating background particles */
+function FloatingLeaf({ delay, x, size, dur }: { delay: number; x: number; size: number; dur: number }) {
+    return (
+        <motion.svg
+            width={size}
+            height={size * 2}
+            viewBox="0 0 20 40"
+            className="absolute pointer-events-none"
+            style={{ left: `${x}%`, bottom: '-40px' }}
+            initial={{ y: 0, opacity: 0, rotate: 0 }}
+            animate={{
+                y: [0, -800, -1200],
+                opacity: [0, 0.5, 0],
+                rotate: [0, 180, 360],
+                x: [0, Math.sin(delay) * 60, Math.cos(delay) * 40],
+            }}
+            transition={{
+                duration: dur,
+                delay,
+                repeat: Infinity,
+                ease: 'easeInOut',
+            }}
+        >
+            <path
+                d="M10,2 Q18,10 16,22 Q14,32 10,38 Q6,32 4,22 Q2,10 10,2Z"
+                fill="none"
+                stroke="rgba(255,255,255,0.25)"
+                strokeWidth="1"
+            />
+            <path
+                d="M10,2 Q12,16 10,38"
+                fill="none"
+                stroke="rgba(255,255,255,0.15)"
+                strokeWidth="0.5"
+            />
+        </motion.svg>
+    );
+}
+
 function Hero() {
     return (
-        <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
-            {/* Animated Background — slow Ken Burns zoom & pan */}
-            <div className="absolute inset-0">
-                <div
-                    className="absolute inset-0"
-                    style={{
-                        backgroundImage: 'url(/images/hero.jpg)',
-                        backgroundSize: 'cover',
-                        backgroundPosition: 'center',
-                        animation: 'heroKenBurns 20s ease-in-out infinite alternate',
-                    }}
+        <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+            {/* Deep gradient background */}
+            <div
+                className="absolute inset-0"
+                style={{
+                    background: 'radial-gradient(ellipse at 30% 50%, #3D1A6E 0%, #2A1052 40%, #1A0A38 70%, #0D0520 100%)',
+                }}
+            />
+
+            {/* Animated gradient orbs */}
+            <motion.div
+                className="absolute w-[600px] h-[600px] rounded-full pointer-events-none"
+                style={{
+                    background: 'radial-gradient(circle, rgba(42,157,143,0.15) 0%, transparent 70%)',
+                    top: '10%',
+                    right: '-10%',
+                }}
+                animate={{ scale: [1, 1.2, 1], x: [0, -30, 0], y: [0, 20, 0] }}
+                transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
+            />
+            <motion.div
+                className="absolute w-[500px] h-[500px] rounded-full pointer-events-none"
+                style={{
+                    background: 'radial-gradient(circle, rgba(91,45,142,0.2) 0%, transparent 70%)',
+                    bottom: '-5%',
+                    left: '-5%',
+                }}
+                animate={{ scale: [1, 1.3, 1], x: [0, 40, 0], y: [0, -25, 0] }}
+                transition={{ duration: 15, repeat: Infinity, ease: 'easeInOut' }}
+            />
+
+            {/* Floating leaves */}
+            {Array.from({ length: 14 }).map((_, i) => (
+                <FloatingLeaf
+                    key={i}
+                    delay={i * 1.8}
+                    x={3 + (i * 7.5) % 94}
+                    size={8 + (i % 4) * 4}
+                    dur={12 + (i % 5) * 3}
                 />
-                {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#5B2D8E]/85 via-[#5B2D8E]/60 to-transparent" />
+            ))}
 
-                {/* Floating bokeh particles */}
-                {[...Array(12)].map((_, i) => (
-                    <div
-                        key={i}
-                        className="absolute rounded-full pointer-events-none"
-                        style={{
-                            width: `${6 + Math.random() * 14}px`,
-                            height: `${6 + Math.random() * 14}px`,
-                            left: `${5 + (i * 8) % 90}%`,
-                            bottom: `-${20 + Math.random() * 10}px`,
-                            background: i % 3 === 0
-                                ? 'rgba(42, 157, 143, 0.35)'
-                                : i % 3 === 1
-                                    ? 'rgba(255, 255, 255, 0.2)'
-                                    : 'rgba(91, 45, 142, 0.3)',
-                            filter: 'blur(1px)',
-                            animation: `floatUp ${8 + (i % 5) * 3}s ease-in-out ${i * 1.5}s infinite`,
-                        }}
-                    />
-                ))}
-
-                {/* Subtle shimmer sweep */}
-                <div
-                    className="absolute inset-0 pointer-events-none"
-                    style={{
-                        background: 'linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.06) 50%, transparent 60%)',
-                        backgroundSize: '200% 100%',
-                        animation: 'shimmer 8s ease-in-out infinite',
-                    }}
-                />
-            </div>
-
-            {/* Content */}
-            <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-32 md:py-0">
+            {/* Geometric diamond sparkles */}
+            {Array.from({ length: 8 }).map((_, i) => (
                 <motion.div
+                    key={`sparkle-${i}`}
+                    className="absolute pointer-events-none"
+                    style={{
+                        left: `${10 + (i * 12) % 80}%`,
+                        top: `${15 + (i * 11) % 70}%`,
+                        width: '4px',
+                        height: '4px',
+                        background: i % 2 === 0 ? '#2A9D8F' : '#8B5CF6',
+                        clipPath: 'polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%)',
+                    }}
+                    animate={{
+                        opacity: [0, 1, 0],
+                        scale: [0.5, 1.5, 0.5],
+                    }}
+                    transition={{
+                        duration: 3 + (i % 3),
+                        delay: i * 0.8,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                    }}
+                />
+            ))}
+
+            {/* Subtle grid pattern overlay */}
+            <div
+                className="absolute inset-0 pointer-events-none opacity-5"
+                style={{
+                    backgroundImage: `
+                        linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px),
+                        linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)
+                    `,
+                    backgroundSize: '60px 60px',
+                }}
+            />
+
+            {/* Center content — logo + text */}
+            <div className="relative z-10 text-center px-6">
+                {/* Rotating ring behind logo */}
+                <div className="relative mx-auto mb-8" style={{ width: '220px', height: '220px' }}>
+                    {/* Outer rotating ring */}
+                    <motion.div
+                        className="absolute inset-0"
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
+                    >
+                        <svg viewBox="0 0 220 220" className="w-full h-full">
+                            <defs>
+                                <linearGradient id="heroRingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stopColor="#2A9D8F" stopOpacity="0.6" />
+                                    <stop offset="50%" stopColor="#5B2D8E" stopOpacity="0.3" />
+                                    <stop offset="100%" stopColor="#2A9D8F" stopOpacity="0.6" />
+                                </linearGradient>
+                            </defs>
+                            <circle cx="110" cy="110" r="105" fill="none" stroke="url(#heroRingGrad)" strokeWidth="1" strokeDasharray="8,12" />
+                            <circle cx="110" cy="110" r="95" fill="none" stroke="url(#heroRingGrad)" strokeWidth="0.5" strokeDasharray="4,16" />
+                        </svg>
+                    </motion.div>
+
+                    {/* Inner counter-rotating ring */}
+                    <motion.div
+                        className="absolute inset-4"
+                        animate={{ rotate: -360 }}
+                        transition={{ duration: 45, repeat: Infinity, ease: 'linear' }}
+                    >
+                        <svg viewBox="0 0 180 180" className="w-full h-full">
+                            <circle cx="90" cy="90" r="85" fill="none" stroke="rgba(42,157,143,0.2)" strokeWidth="0.5" strokeDasharray="2,8" />
+                        </svg>
+                    </motion.div>
+
+                    {/* Pulsing glow behind logo */}
+                    <motion.div
+                        className="absolute inset-8 rounded-full"
+                        style={{
+                            background: 'radial-gradient(circle, rgba(42,157,143,0.2) 0%, transparent 70%)',
+                        }}
+                        animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0.8, 0.5] }}
+                        transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+                    />
+
+                    {/* Logo */}
+                    <motion.div
+                        className="absolute inset-0 flex items-center justify-center"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 1, ease: 'easeOut' }}
+                    >
+                        <img
+                            src="/images/logo.png"
+                            alt="Pure Diamond Massage"
+                            className="w-40 h-40 object-contain drop-shadow-2xl"
+                            style={{ filter: 'drop-shadow(0 0 20px rgba(42,157,143,0.3))' }}
+                        />
+                    </motion.div>
+                </div>
+
+                {/* Title */}
+                <motion.h1
+                    className="font-display text-5xl md:text-7xl font-bold text-white leading-tight mb-4"
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                >
+                    Pure Diamond<br />
+                    <span
+                        className="bg-clip-text text-transparent"
+                        style={{ backgroundImage: 'linear-gradient(135deg, #2A9D8F, #5BE0D4)' }}
+                    >
+                        Massage
+                    </span>
+                </motion.h1>
+
+                {/* Subtitle */}
+                <motion.p
+                    className="text-white/70 text-lg md:text-xl max-w-xl mx-auto mb-4"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.7 }}
-                    className="max-w-2xl"
+                    transition={{ duration: 0.7, delay: 0.6 }}
                 >
-                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 backdrop-blur-sm border border-white/20 mb-6">
-                        <span className="w-2 h-2 rounded-full bg-[#2A9D8F] animate-pulse" />
-                        <span className="text-white/90 text-sm font-medium">Now Accepting Appointments</span>
-                    </div>
+                    Your sanctuary for healing and renewal
+                </motion.p>
 
-                    <h1 className="font-display text-5xl md:text-7xl font-bold text-white leading-tight mb-6">
-                        Pure Diamond<br />
-                        <span className="text-[#2A9D8F]">Massage</span>
-                    </h1>
-
-                    <p className="text-white/85 text-lg md:text-xl leading-relaxed mb-10 max-w-lg">
-                        Your sanctuary for healing and renewal. Professional therapeutic massage
-                        in a warm, welcoming environment — located inside{' '}
-                        <span className="font-semibold text-white">Roots 66 Salon</span>, Cuba, MO.
-                    </p>
-
-                    <div className="flex flex-col sm:flex-row gap-4">
-                        <a
-                            href="tel:6363007711"
-                            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#2A9D8F] hover:bg-[#248F83] text-white font-semibold text-lg shadow-lg hover:shadow-xl transition-all hover:scale-105"
-                        >
-                            📞 (636) 300-7711
-                        </a>
-                        <a
-                            href="#services"
-                            className="inline-flex items-center justify-center px-8 py-4 rounded-full border-2 border-white/40 text-white font-semibold hover:bg-white/10 transition-all"
-                        >
-                            View Services ↓
-                        </a>
-                    </div>
-
-                    <p className="mt-6 text-white/60 text-sm">
-                        Message or text to book your appointment
-                    </p>
+                {/* Location badge */}
+                <motion.div
+                    className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/15 mb-10"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.9 }}
+                >
+                    <span className="w-2 h-2 rounded-full bg-[#2A9D8F] animate-pulse" />
+                    <span className="text-white/80 text-sm">
+                        Inside <span className="font-semibold text-white">Roots 66 Salon</span> · Cuba, MO
+                    </span>
                 </motion.div>
+
+                {/* CTA Buttons */}
+                <motion.div
+                    className="flex flex-col sm:flex-row gap-4 justify-center"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7, delay: 1.1 }}
+                >
+                    <a
+                        href="tel:6363007711"
+                        className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#2A9D8F] hover:bg-[#248F83] text-white font-semibold text-lg shadow-lg shadow-teal-500/20 hover:shadow-xl hover:shadow-teal-500/30 transition-all hover:scale-105"
+                    >
+                        📞 (636) 300-7711
+                    </a>
+                    <a
+                        href="#services"
+                        className="inline-flex items-center justify-center px-8 py-4 rounded-full border-2 border-white/25 text-white font-semibold hover:bg-white/10 transition-all"
+                    >
+                        View Services ↓
+                    </a>
+                </motion.div>
+
+                {/* Helper text */}
+                <motion.p
+                    className="mt-6 text-white/40 text-sm"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1.5 }}
+                >
+                    Message or text to book your appointment
+                </motion.p>
             </div>
+
+            {/* Bottom fade to white */}
+            <div
+                className="absolute bottom-0 left-0 right-0 h-24 pointer-events-none"
+                style={{ background: 'linear-gradient(to top, white, transparent)' }}
+            />
         </section>
     );
 }

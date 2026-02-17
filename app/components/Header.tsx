@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Logo from './Logo';
 
 export default function Header() {
     const [scrolled, setScrolled] = useState(false);
@@ -21,6 +22,7 @@ export default function Header() {
         { label: 'Home', href: '#hero' },
         { label: 'Services', href: '#services' },
         { label: 'About', href: '#about' },
+        { label: 'Reviews', href: '#reviews' },
         { label: 'Contact', href: '#contact' },
     ];
 
@@ -32,24 +34,16 @@ export default function Header() {
                 }`}
         >
             <div className="flex items-center justify-between">
-                {/* Logo — flush left, fills full navbar height */}
-                <a href="#hero" className="flex items-center gap-3 group pl-2 md:pl-4">
-                    <img
-                        src="/images/logo.png"
-                        alt="Pure Diamond Massage logo"
-                        className={`w-auto transition-all duration-300 ${scrolled ? 'h-12' : 'h-16 md:h-20'}`}
+                {/* Logo — flush left, max size */}
+                <a href="#hero" className="flex items-center pl-2 md:pl-4 group">
+                    <Logo
+                        size={scrolled ? 44 : 64}
+                        showText={true}
+                        className="transition-all duration-300"
                     />
-                    <div className="flex flex-col leading-tight">
-                        <span className="font-display text-lg md:text-xl font-bold text-[#5B2D8E]">
-                            Pure Diamond
-                        </span>
-                        <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-[#2A9D8F] font-semibold">
-                            Massage Therapy
-                        </span>
-                    </div>
                 </a>
 
-                {/* Desktop Nav — right side with padding */}
+                {/* Desktop Nav */}
                 <nav className="hidden md:flex items-center gap-8 pr-6">
                     {links.map((link) => (
                         <a
