@@ -1,115 +1,271 @@
-import Link from 'next/link';
-import Navigation from './components/Navigation';
-import Footer from './components/Footer';
+"use client";
+import React from 'react';
+import { motion } from 'framer-motion';
 
-export default function Home() {
-    const services = [
-        {
-            name: 'Swedish Massage',
-            description: 'Experience deep relaxation with our signature Swedish Massage. Gentle, flowing strokes work to release tension and improve circulation.',
-            image: '/images/massage-1.jpg', // Placeholder logic, will use colors/icons if images missing
-            likes: '1.2k',
-            comments: '342',
-            icon: '🌿',
-            time: '2 hrs ago',
-            link: '/services'
-        },
-        {
-            name: 'Deep Tissue Therapy',
-            description: 'Got knots? Our Deep Tissue therapy targets chronic muscle tension. Perfect for recovery after a long week or intense workout.',
-            likes: '856',
-            comments: '128',
-            icon: '💎',
-            time: '4 hrs ago',
-            link: '/services'
-        },
-        {
-            name: 'Myofascial Release',
-            description: 'Restore your range of motion. This specialized technique releases restrictions in the connective tissue.',
-            likes: '920',
-            comments: '56',
-            icon: '✨',
-            time: 'Yesterday',
-            link: '/services'
-        },
-    ];
-
+/* ────────────────────────────────────────────
+   HERO
+   ──────────────────────────────────────────── */
+function Hero() {
     return (
-        <main className="min-h-screen bg-[#F0F2F5] pb-20">
-            <Navigation />
+        <section id="hero" className="relative min-h-screen flex items-center overflow-hidden">
+            {/* Background Image */}
+            <div className="absolute inset-0">
+                <img
+                    src="/images/hero.jpg"
+                    alt="Massage therapy session"
+                    className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-[#5B2D8E]/85 via-[#5B2D8E]/60 to-transparent" />
+            </div>
 
-            {/* Container for Profile Layout */}
-            <div className="w-full max-w-[940px] mx-auto">
+            {/* Content */}
+            <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-32 md:py-0">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.7 }}
+                    className="max-w-2xl"
+                >
+                    <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/15 backdrop-blur-sm border border-white/20 mb-6">
+                        <span className="w-2 h-2 rounded-full bg-[#2A9D8F] animate-pulse" />
+                        <span className="text-white/90 text-sm font-medium">Now Accepting Appointments</span>
+                    </div>
 
-                {/* 1. Cover Photo Area */}
-                <div className="relative w-full bg-white shadow-sm rounded-b-xl overflow-hidden">
-                    {/* Cover Gradient/Image */}
-                    <div className="h-[200px] md:h-[350px] bg-gradient-to-r from-[#1877F2] to-[#4A90E2] relative">
-                        <div className="absolute inset-0 bg-black/10"></div>
-                        <div className="absolute bottom-4 right-4 bg-white/20 backdrop-blur-md px-3 py-1.5 rounded-md text-white font-medium text-sm flex items-center gap-2 cursor-pointer hover:bg-white/30 transition">
-                            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" /></svg>
-                            Edit Cover Photo
+                    <h1 className="font-display text-5xl md:text-7xl font-bold text-white leading-tight mb-6">
+                        Pure Diamond<br />
+                        <span className="text-[#2A9D8F]">Massage</span>
+                    </h1>
+
+                    <p className="text-white/85 text-lg md:text-xl leading-relaxed mb-10 max-w-lg">
+                        Your sanctuary for healing and renewal. Professional therapeutic massage
+                        in a warm, welcoming environment — located inside{' '}
+                        <span className="font-semibold text-white">Roots 66 Salon</span>, Cuba, MO.
+                    </p>
+
+                    <div className="flex flex-col sm:flex-row gap-4">
+                        <a
+                            href="tel:6363007711"
+                            className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#2A9D8F] hover:bg-[#248F83] text-white font-semibold text-lg shadow-lg hover:shadow-xl transition-all hover:scale-105"
+                        >
+                            📞 (636) 300-7711
+                        </a>
+                        <a
+                            href="#services"
+                            className="inline-flex items-center justify-center px-8 py-4 rounded-full border-2 border-white/40 text-white font-semibold hover:bg-white/10 transition-all"
+                        >
+                            View Services ↓
+                        </a>
+                    </div>
+
+                    <p className="mt-6 text-white/60 text-sm">
+                        Message or text to book your appointment
+                    </p>
+                </motion.div>
+            </div>
+        </section>
+    );
+}
+
+/* ────────────────────────────────────────────
+   MEET DIAMOND (About / Owner)
+   ──────────────────────────────────────────── */
+function MeetDiamond() {
+    return (
+        <section id="about" className="py-20 md:py-28 px-6 md:px-12 bg-white">
+            <div className="max-w-7xl mx-auto">
+                <div className="grid md:grid-cols-2 gap-16 items-center">
+                    {/* Diamond's Photo */}
+                    <div className="relative">
+                        <div className="rounded-2xl overflow-hidden shadow-xl">
+                            <img
+                                src="/images/diamond-payne.png"
+                                alt="Diamond Payne, Licensed Massage Therapist"
+                                className="w-full h-auto md:h-[550px] object-cover"
+                            />
+                        </div>
+                        {/* Rating Badge */}
+                        <div className="absolute -bottom-6 right-4 md:right-8 bg-white rounded-2xl shadow-xl px-6 py-4 border border-gray-100">
+                            <div className="flex items-center gap-3">
+                                <div
+                                    className="w-12 h-12 rounded-full flex items-center justify-center"
+                                    style={{ background: 'linear-gradient(135deg, #5B2D8E, #2A9D8F)' }}
+                                >
+                                    <span className="text-white text-xl">★</span>
+                                </div>
+                                <div>
+                                    <span className="block text-2xl font-bold text-[#5B2D8E]">100%</span>
+                                    <span className="text-sm text-gray-500">Recommended</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    {/* Profile Header Info */}
-                    <div className="px-4 md:px-8 pb-4 relative">
-                        <div className="flex flex-col md:flex-row items-center md:items-end gap-4 -mt-[84px] md:-mt-[30px] mb-4">
-                            {/* Profile Picture (Logo) */}
-                            <div className="relative z-10 p-1 bg-white rounded-full">
-                                <div className="w-[168px] h-[168px] rounded-full bg-white overflow-hidden border-4 border-white shadow-md relative">
-                                    <img
-                                        src="/images/logo.png"
-                                        alt="Profile"
-                                        className="w-full h-full object-cover animate-pulse-ring"
-                                        style={{ width: '100%', height: '100%' }}
-                                    />
-                                    {/* Online Status Indicator */}
-                                    <div className="absolute bottom-4 right-4 w-6 h-6 bg-[#42B72A] rounded-full border-4 border-white" title="Open Now"></div>
-                                </div>
-                            </div>
+                    {/* Content */}
+                    <div>
+                        <span className="inline-block px-4 py-1.5 rounded-full bg-[#E8DFF5] text-[#5B2D8E] text-sm font-semibold mb-4">
+                            Meet Your Therapist
+                        </span>
+                        <h2 className="font-display text-4xl md:text-5xl font-bold text-[#2D2D3F] mb-6 leading-tight">
+                            Diamond <span className="text-[#2A9D8F]">Payne</span>
+                        </h2>
+                        <div className="space-y-5 text-gray-600 text-lg leading-relaxed">
+                            <p>
+                                Welcome! My name is <strong className="text-[#2D2D3F]">Diamond Payne</strong>.
+                                I am a recent graduate of{' '}
+                                <strong className="text-[#2D2D3F]">The Healing Arts Center</strong> in Saint Louis.
+                                I am trained in several massage techniques and specialize in personalized massage therapy.
+                            </p>
+                            <p>
+                                My goal is to create a soothing and healing environment where you can
+                                unwind, relieve tension, and find relief from pain and stress. I focus on
+                                understanding each client&apos;s needs to tailor sessions that support both
+                                physical and mental well-being.
+                            </p>
+                            <p>
+                                Whether you&apos;re seeking relief from chronic pain, recovery from an injury,
+                                or simply a moment of relaxation, I am here to guide you on your path to wellness.
+                            </p>
+                        </div>
 
-                            {/* Name & Headline */}
-                            <div className="flex-1 text-center md:text-left mb-2 md:mb-8 pt-4 md:pt-12">
-                                <h1 className="text-3xl font-bold text-[#050505] flex items-center justify-center md:justify-start gap-2">
-                                    Pure Diamond Massage
-                                    <span className="text-[#1877F2]">
-                                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>
-                                    </span>
-                                </h1>
-                                <p className="text-[#65676B] font-semibold text-lg">Massage Service · Cuba, Missouri</p>
-                                <div className="flex items-center justify-center md:justify-start gap-[-8px] mt-2">
-                                    <div className="flex -space-x-2 overflow-hidden">
-                                        {[1, 2, 3].map(i => (
-                                            <div key={i} className="inline-block h-6 w-6 rounded-full ring-2 ring-white bg-gray-200" />
-                                        ))}
+                        {/* Info Grid */}
+                        <div className="grid grid-cols-2 gap-4 mt-8">
+                            <div className="p-4 rounded-xl bg-[#F3F4F6]">
+                                <span className="text-2xl mb-1 block">📍</span>
+                                <span className="text-sm font-semibold text-[#2D2D3F]">Cuba, MO</span>
+                                <span className="text-xs text-gray-500 block">Inside Roots 66 Salon</span>
+                            </div>
+                            <div className="p-4 rounded-xl bg-[#F3F4F6]">
+                                <span className="text-2xl mb-1 block">🎓</span>
+                                <span className="text-sm font-semibold text-[#2D2D3F]">The Healing Arts Center</span>
+                                <span className="text-xs text-gray-500 block">Saint Louis, MO</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    );
+}
+
+/* ────────────────────────────────────────────
+   SERVICES & PRICING
+   ──────────────────────────────────────────── */
+const services = [
+    {
+        title: 'Swedish Massage',
+        desc: 'Classic relaxation therapy using long, flowing strokes to promote deep relaxation and improve circulation.',
+        icon: '🌿',
+    },
+    {
+        title: 'Deep Tissue',
+        desc: 'Focused pressure on deeper muscle layers to release chronic tension and stubborn knots.',
+        icon: '💎',
+    },
+    {
+        title: 'Myofascial Release',
+        desc: 'Gentle, sustained pressure on connective tissue to restore mobility and reduce pain.',
+        icon: '✨',
+    },
+    {
+        title: 'Sports Massage',
+        desc: 'Performance-focused techniques to prevent injury, speed recovery, and enhance flexibility.',
+        icon: '⚡',
+    },
+    {
+        title: 'Reflexology',
+        desc: 'Targeted pressure on specific reflex points to promote natural healing and overall wellness.',
+        icon: '🦶',
+    },
+    {
+        title: 'Cupping Therapy',
+        desc: 'Ancient healing using suction cups to increase blood flow, promote healing, and relieve tension.',
+        icon: '🔮',
+    },
+];
+
+const pricing = [
+    { duration: '30 min', price: '$30' },
+    { duration: '60 min', price: '$60' },
+    { duration: '90 min', price: '$90' },
+];
+
+const addOns = [
+    { name: 'Hot Towel', price: '$9' },
+    { name: 'Cupping', price: '$15' },
+    { name: 'Sports Therapy', price: '$30' },
+];
+
+function Services() {
+    return (
+        <section id="services" className="py-20 md:py-28 px-6 md:px-12 bg-[#FAFAFA]">
+            <div className="max-w-7xl mx-auto">
+                {/* Header */}
+                <div className="text-center mb-16">
+                    <span className="inline-block px-4 py-1.5 rounded-full bg-[#D4F0ED] text-[#2A9D8F] text-sm font-semibold mb-4">
+                        Our Services
+                    </span>
+                    <h2 className="font-display text-4xl md:text-5xl font-bold text-[#2D2D3F] mb-4">
+                        Therapeutic <span className="text-[#5B2D8E]">Treatments</span>
+                    </h2>
+                    <p className="text-gray-500 text-lg max-w-2xl mx-auto">
+                        Customized massage therapy designed to meet your individual wellness needs.
+                    </p>
+                </div>
+
+                {/* Service Cards */}
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {services.map((svc, i) => (
+                        <div
+                            key={i}
+                            className="bg-white rounded-2xl p-8 border border-gray-100 hover:-translate-y-1.5 hover:shadow-xl transition-all duration-300"
+                        >
+                            <span className="text-4xl block mb-4">{svc.icon}</span>
+                            <h3 className="font-display text-xl font-bold text-[#2D2D3F] mb-3">
+                                {svc.title}
+                            </h3>
+                            <p className="text-gray-500 leading-relaxed text-sm">
+                                {svc.desc}
+                            </p>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Pricing */}
+                <div className="mt-16 rounded-2xl overflow-hidden border border-gray-100 bg-white p-8 md:p-12">
+                    <div className="grid md:grid-cols-2 gap-12 items-start">
+                        {/* Base Pricing */}
+                        <div>
+                            <h3 className="font-display text-2xl md:text-3xl font-bold text-[#2D2D3F] mb-2">
+                                Session <span className="text-[#5B2D8E]">Pricing</span>
+                            </h3>
+                            <p className="text-gray-500 mb-8">All massage types available at every session length</p>
+                            <div className="space-y-4">
+                                {pricing.map((item, i) => (
+                                    <div
+                                        key={i}
+                                        className="flex items-center justify-between p-5 rounded-xl bg-[#FAFAFA] border border-gray-100"
+                                    >
+                                        <span className="text-lg font-semibold text-[#2D2D3F]">{item.duration}</span>
+                                        <span className="text-2xl font-bold text-[#5B2D8E]">{item.price}</span>
                                     </div>
-                                    <span className="ml-3 text-sm text-[#65676B] hover:underline cursor-pointer">1.2k friends like this</span>
-                                </div>
-                            </div>
-
-                            {/* Action Buttons */}
-                            <div className="flex gap-2 mb-4 md:mb-8">
-                                <Link href="/contact" className="btn btn-primary gap-2 px-4">
-                                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" /><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" /></svg>
-                                    Message
-                                </Link>
-                                <button className="btn btn-secondary gap-2 px-4">
-                                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" /></svg>
-                                    Like
-                                </button>
+                                ))}
                             </div>
                         </div>
 
-                        <div className="border-t border-[#CED0D4] pt-1">
-                            {/* Profile Navigation Tabs */}
-                            <div className="flex items-center gap-1 overflow-x-auto no-scrollbar">
-                                {['Posts', 'About', 'Mentions', 'Reviews', 'Followers', 'Photos'].map((tab, i) => (
+                        {/* Add-Ons */}
+                        <div>
+                            <h3 className="font-display text-2xl md:text-3xl font-bold text-[#2D2D3F] mb-2">
+                                <span className="text-[#2A9D8F]">Add-Ons</span>
+                            </h3>
+                            <p className="text-gray-500 mb-8">Enhance your session with extras</p>
+                            <div className="space-y-4">
+                                {addOns.map((item, i) => (
                                     <div
-                                        key={tab}
-                                        className={`px-4 py-3 font-semibold text-[15px] cursor-pointer whitespace-nowrap border-b-[3px] transition-colors ${i === 0 ? 'text-[#1877F2] border-[#1877F2]' : 'text-[#65676B] border-transparent hover:bg-[#F0F2F5] rounded-lg'}`}
+                                        key={i}
+                                        className="flex items-center justify-between p-5 rounded-xl bg-[#FAFAFA] border border-gray-100"
                                     >
-                                        {tab}
+                                        <span className="text-lg font-semibold text-[#2D2D3F]">{item.name}</span>
+                                        <span className="text-2xl font-bold text-[#2A9D8F]">{item.price}</span>
                                     </div>
                                 ))}
                             </div>
@@ -117,216 +273,236 @@ export default function Home() {
                     </div>
                 </div>
 
-                {/* 2. Main Layout: Sidebar + Feed */}
-                <div className="flex flex-col md:flex-row gap-4 mt-4 px-4 md:px-0">
-
-                    {/* Left Sidebar (Intro) */}
-                    <div className="w-full md:w-[360px] flex-shrink-0 space-y-4">
-                        {/* Intro Card */}
-                        <div className="social-card p-4">
-                            <h2 className="text-xl font-bold mb-3 text-[#050505]">Intro</h2>
-                            <p className="text-center text-sm text-[#050505] mb-4">Based in Cuba, MO. Healing bodies one session at a time. ✨</p>
-                            <div className="space-y-3 mb-4">
-                                <Link href="/contact" className="w-full btn btn-secondary bg-[#F0F2F5] hover:bg-[#D8DADF]">Book Appointment</Link>
-                            </div>
-
-                            <div className="space-y-3 text-[15px]">
-                                <div className="flex items-center gap-3 text-[#050505]">
-                                    <svg className="w-5 h-5 text-[#8C939D]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clipRule="evenodd" /><path d="M2 13.692V16a2 2 0 002 2h12a2 2 0 002-2v-2.308A24.974 24.974 0 0110 15c-2.796 0-5.487-.46-8-1.308z" /></svg>
-                                    <span>Relaxation Specialist at <span className="font-semibold">Pure Diamond</span></span>
-                                </div>
-                                <div className="flex items-center gap-3 text-[#050505]">
-                                    <svg className="w-5 h-5 text-[#8C939D]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" /></svg>
-                                    <span>From <span className="font-semibold">Cuba, Missouri</span></span>
-                                </div>
-                                <div className="flex items-center gap-3 text-[#050505]">
-                                    <svg className="w-5 h-5 text-[#8C939D]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" /></svg>
-                                    <span>Always Open (Online Booking)</span>
-                                </div>
-                            </div>
+                {/* Gift Certificates */}
+                <div className="mt-8 rounded-2xl overflow-hidden relative">
+                    <img
+                        src="/images/gift-certificate.jpg"
+                        alt="Gift certificates available"
+                        className="w-full h-64 md:h-80 object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-r from-[#5B2D8E]/80 to-transparent flex items-center">
+                        <div className="px-8 md:px-16">
+                            <h3 className="font-display text-3xl md:text-4xl font-bold text-white mb-3">
+                                Gift Certificates Available
+                            </h3>
+                            <p className="text-white/80 text-lg mb-6 max-w-md">
+                                The perfect gift for someone who deserves luxury and relaxation. Available in 30, 60, and 90 minute sessions.
+                            </p>
+                            <a
+                                href="tel:6363007711"
+                                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#2A9D8F] text-white font-semibold hover:bg-[#248F83] transition-colors"
+                            >
+                                📞 Call to Purchase
+                            </a>
                         </div>
-
-                        {/* Photos Side Preview */}
-                        <div className="social-card p-4">
-                            <div className="flex justify-between items-center mb-3">
-                                <h2 className="text-xl font-bold text-[#050505]">Photos</h2>
-                                <a href="#" className="text-[#1877F2] text-[15px] hover:bg-[#F0F2F5] px-2 py-1 rounded">See All Photos</a>
-                            </div>
-                            <div className="grid grid-cols-3 gap-1 rounded-lg overflow-hidden">
-                                <div className="aspect-square bg-[#E4E6EB] animate-pulse"></div>
-                                <div className="aspect-square bg-[#E4E6EB] animate-pulse"></div>
-                                <div className="aspect-square bg-[#E4E6EB] animate-pulse"></div>
-                                <div className="aspect-square bg-[#E4E6EB] animate-pulse"></div>
-                                <div className="aspect-square bg-[#E4E6EB] animate-pulse"></div>
-                                <div className="aspect-square bg-[#E4E6EB] animate-pulse"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    {/* Right Column (Feed) */}
-                    <div className="flex-1 space-y-4">
-                        {/* "Create Post" Box (Simulated) */}
-                        <div className="social-card p-3">
-                            <div className="flex gap-2 mb-3 border-b border-[#E4E6EB] pb-3">
-                                <div className="w-10 h-10 rounded-full bg-gray-200 overflow-hidden flex-shrink-0">
-                                    <img src="/images/logo.png" className="w-full h-full object-cover" style={{ width: '100%', height: '100%' }} />
-                                </div>
-                                <div className="flex-1 bg-[#F0F2F5] rounded-full px-4 flex items-center text-[#65676B] hover:bg-[#E4E6EB] cursor-pointer">
-                                    What treatment do you need today?
-                                </div>
-                            </div>
-                            <div className="flex justify-between px-2">
-                                <div className="flex items-center gap-2 py-2 px-4 hover:bg-[#F0F2F5] rounded-lg cursor-pointer">
-                                    <span className="text-[#F3425F]">🎥</span> <span className="text-[#65676B] font-semibold text-[14px]">Live Video</span>
-                                </div>
-                                <div className="flex items-center gap-2 py-2 px-4 hover:bg-[#F0F2F5] rounded-lg cursor-pointer">
-                                    <span className="text-[#45BD62]">🖼️</span> <span className="text-[#65676B] font-semibold text-[14px]">Photo/Video</span>
-                                </div>
-                                <div className="flex items-center gap-2 py-2 px-4 hover:bg-[#F0F2F5] rounded-lg cursor-pointer">
-                                    <span className="text-[#F7B928]">😊</span> <span className="text-[#65676B] font-semibold text-[14px]">Feeling/Activity</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Pinned Post */}
-                        <div className="social-card">
-                            {/* Post Header */}
-                            <div className="p-3 pl-4 flex items-start justify-between">
-                                <div className="flex gap-2">
-                                    <div className="w-10 h-10 rounded-full border border-gray-200 overflow-hidden cursor-pointer">
-                                        <img src="/images/logo.png" className="w-full h-full object-cover" style={{ width: '100%', height: '100%' }} />
-                                    </div>
-                                    <div>
-                                        <h3 className="font-semibold text-[#050505] text-[15px] cursor-pointer hover:underline">Pure Diamond Massage</h3>
-                                        <div className="flex items-center gap-1 text-xs text-[#65676B]">
-                                            <span>Pinned Post</span>
-                                            <span>·</span>
-                                            <svg className="w-3 h-3 text-[#65676B]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" /></svg>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="p-2 hover:bg-[#F0F2F5] rounded-full cursor-pointer text-[#65676B]">
-                                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" /></svg>
-                                </div>
-                            </div>
-
-                            {/* Post Content */}
-                            <div className="px-4 pb-2 text-[15px] text-[#050505]">
-                                Welcome to my new page! 💎 <br />
-                                I'm excited to share my passion for healing with you all. Book your session today and experience the difference. #MassageTherapy #CubaMO #Relaxation
-                            </div>
-
-                            {/* Post Image (Placeholder Gradient) */}
-                            <div className="w-full h-[300px] bg-gradient-to-br from-[#1877F2] to-[#6BC5F8] flex items-center justify-center text-white text-4xl font-bold">
-                                New Beginnings!
-                            </div>
-
-                            {/* Engagement Stats */}
-                            <div className="mx-4 py-2 border-b border-[#CED0D4] flex justify-between text-[#65676B] text-[14px]">
-                                <div className="flex items-center gap-1">
-                                    <div className="bg-[#1877F2] rounded-full p-1 w-4 h-4 flex items-center justify-center">
-                                        <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z" /></svg>
-                                    </div>
-                                    <span>You and 84 others</span>
-                                </div>
-                                <div className="flex gap-4">
-                                    <span>24 Comments</span>
-                                    <span>6 Shares</span>
-                                </div>
-                            </div>
-
-                            {/* Action Bar */}
-                            <div className="mx-4 py-1 flex items-center justify-between">
-                                <button className="flex-1 flex items-center justify-center gap-2 py-2 hover:bg-[#F0F2F5] rounded-md text-[#65676B] font-semibold text-[14px]">
-                                    👍 Like
-                                </button>
-                                <button className="flex-1 flex items-center justify-center gap-2 py-2 hover:bg-[#F0F2F5] rounded-md text-[#65676B] font-semibold text-[14px]">
-                                    💬 Comment
-                                </button>
-                                <button className="flex-1 flex items-center justify-center gap-2 py-2 hover:bg-[#F0F2F5] rounded-md text-[#65676B] font-semibold text-[14px]">
-                                    ↗ Share
-                                </button>
-                            </div>
-                        </div>
-
-                        {/* Service Cards as Posts */}
-                        {services.map((service, index) => (
-                            <div key={index} className="social-card">
-                                {/* Post Header */}
-                                <div className="p-3 pl-4 flex items-start justify-between">
-                                    <div className="flex gap-2">
-                                        <div className="w-10 h-10 rounded-full border border-gray-200 overflow-hidden cursor-pointer">
-                                            <img
-                                                src="/images/logo.png"
-                                                className="w-full h-full object-cover"
-                                                style={{ width: '100%', height: '100%' }}
-                                            />
-                                        </div>
-                                        <div>
-                                            <h3 className="font-semibold text-[#050505] text-[15px] cursor-pointer hover:underline">Pure Diamond Services</h3>
-                                            <div className="flex items-center gap-1 text-xs text-[#65676B]">
-                                                <span>{service.time}</span>
-                                                <span>·</span>
-                                                <svg className="w-3 h-3 text-[#65676B]" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" /></svg>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="p-2 hover:bg-[#F0F2F5] rounded-full cursor-pointer text-[#65676B]">
-                                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" /></svg>
-                                    </div>
-                                </div>
-
-                                {/* Post Content */}
-                                <div className="px-4 pb-2 text-[15px] text-[#050505]">
-                                    <span className="font-bold block mb-1 text-lg">{service.name} {service.icon}</span>
-                                    {service.description}
-                                </div>
-
-                                {/* Post "Image" (Service Visual) */}
-                                <div className="w-full h-[250px] bg-[#F0F2F5] relative group cursor-pointer overflow-hidden">
-                                    {/* Simple decorative background */}
-                                    <div className="absolute inset-0 bg-gradient-to-r from-gray-100 to-gray-200 flex items-center justify-center">
-                                        <span className="text-8xl opacity-20 filter grayscale">{service.icon}</span>
-                                    </div>
-                                    <div className="absolute inset-0 flex items-center justify-center bg-black/0 group-hover:bg-black/10 transition">
-                                        <Link href={service.link} className="btn btn-primary px-6 py-2 shadow-lg scale-95 group-hover:scale-100 transition-transform">
-                                            Book This Service
-                                        </Link>
-                                    </div>
-                                </div>
-
-                                {/* Engagement Stats */}
-                                <div className="mx-4 py-2 border-b border-[#CED0D4] flex justify-between text-[#65676B] text-[14px]">
-                                    <div className="flex items-center gap-1">
-                                        <div className="bg-[#1877F2] rounded-full p-1 w-4 h-4 flex items-center justify-center">
-                                            <svg className="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z" /></svg>
-                                        </div>
-                                        <span>{service.likes}</span>
-                                    </div>
-                                    <div className="flex gap-4">
-                                        <span>{service.comments} Comments</span>
-                                    </div>
-                                </div>
-
-                                {/* Action Bar */}
-                                <div className="mx-4 py-1 flex items-center justify-between">
-                                    <Link href={service.link} className="flex-1 flex items-center justify-center gap-2 py-2 hover:bg-[#F0F2F5] rounded-md text-[#65676B] font-semibold text-[14px]">
-                                        👍 Like
-                                    </Link>
-                                    <Link href="/contact" className="flex-1 flex items-center justify-center gap-2 py-2 hover:bg-[#F0F2F5] rounded-md text-[#65676B] font-semibold text-[14px]">
-                                        📅 Book Now
-                                    </Link>
-                                    <button className="flex-1 flex items-center justify-center gap-2 py-2 hover:bg-[#F0F2F5] rounded-md text-[#65676B] font-semibold text-[14px]">
-                                        ↗ Share
-                                    </button>
-                                </div>
-                            </div>
-                        ))}
                     </div>
                 </div>
             </div>
+        </section>
+    );
+}
 
-            <Footer />
+/* ────────────────────────────────────────────
+   REVIEWS / TESTIMONIALS
+   ──────────────────────────────────────────── */
+const reviews = [
+    {
+        name: 'Amy Bright',
+        text: 'Highly recommend Pure Diamond Massage. Diamond made me feel comfortable and did one of the best massages I have ever gotten. She knows about all those special points that make you relax and help those fatigued muscles. Booking was easy and accommodations from Diamond made my experience top tier. Go treat yourself!',
+        date: 'April 2025',
+    },
+    {
+        name: 'Tammy Highley',
+        text: 'Diamond has been amazing for me! I have had multiple surgeries and hurt constantly— she has been a life changer for me! Highly recommend giving her a try!',
+        date: 'August 2025',
+    },
+    {
+        name: 'Paige Gunn',
+        text: 'Had a great experience with Diamond — the massage was amazing and really helped relieve the tension I was having in my neck and shoulders. Absolutely recommend!',
+        date: 'November 2025',
+    },
+    {
+        name: 'Tracie Johanning',
+        text: 'I have had an hour and an hour and a half massages with Diamond so far. She is amazing! I highly recommend giving this new business a try.',
+        date: 'September 2025',
+    },
+    {
+        name: 'Norman Payne Jr.',
+        text: 'She did a wonderful job and I will be going back!',
+        date: 'September 2025',
+    },
+    {
+        name: 'Shane Anselm',
+        text: 'Very Good Job I will go back.',
+        date: 'October 2025',
+    },
+];
+
+function Reviews() {
+    return (
+        <section id="reviews" className="py-20 md:py-28 px-6 md:px-12 bg-white">
+            <div className="max-w-7xl mx-auto">
+                {/* Header */}
+                <div className="text-center mb-16">
+                    <span className="inline-block px-4 py-1.5 rounded-full bg-[#E8DFF5] text-[#5B2D8E] text-sm font-semibold mb-4">
+                        Client Reviews
+                    </span>
+                    <h2 className="font-display text-4xl md:text-5xl font-bold text-[#2D2D3F] mb-4">
+                        What Our <span className="text-[#2A9D8F]">Clients</span> Say
+                    </h2>
+                    <p className="text-gray-500 text-lg max-w-2xl mx-auto">
+                        100% recommended on Facebook — real reviews from real clients.
+                    </p>
+                </div>
+
+                {/* Review Cards */}
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {reviews.map((review, i) => (
+                        <motion.div
+                            key={i}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: i * 0.1 }}
+                            className="bg-[#FAFAFA] rounded-2xl p-8 border border-gray-100 hover:shadow-lg transition-all"
+                        >
+                            {/* Stars */}
+                            <div className="flex gap-1 mb-4">
+                                {[...Array(5)].map((_, j) => (
+                                    <span key={j} className="text-[#F59E0B] text-lg">★</span>
+                                ))}
+                            </div>
+                            {/* Quote */}
+                            <p className="text-gray-600 leading-relaxed mb-6 text-sm italic">
+                                &ldquo;{review.text}&rdquo;
+                            </p>
+                            {/* Author */}
+                            <div className="flex items-center gap-3 pt-4 border-t border-gray-200">
+                                <div
+                                    className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm"
+                                    style={{ background: 'linear-gradient(135deg, #5B2D8E, #2A9D8F)' }}
+                                >
+                                    {review.name.charAt(0)}
+                                </div>
+                                <div>
+                                    <span className="block font-semibold text-[#2D2D3F] text-sm">{review.name}</span>
+                                    <span className="text-xs text-gray-400">{review.date} · Facebook</span>
+                                </div>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
+
+                {/* Facebook link */}
+                <div className="text-center mt-10">
+                    <a
+                        href="https://www.facebook.com/profile.php?id=61574471992072&sk=reviews"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-[#5B2D8E] font-semibold hover:underline"
+                    >
+                        See All Reviews on Facebook →
+                    </a>
+                </div>
+            </div>
+        </section>
+    );
+}
+
+/* ────────────────────────────────────────────
+   CONTACT / FOOTER
+   ──────────────────────────────────────────── */
+function Contact() {
+    return (
+        <section
+            id="contact"
+            className="py-20 md:py-28 px-6 md:px-12 text-white"
+            style={{ background: 'linear-gradient(135deg, #5B2D8E, #2A9D8F)' }}
+        >
+            <div className="max-w-7xl mx-auto">
+                <div className="grid md:grid-cols-2 gap-16">
+                    {/* Left: CTA */}
+                    <div>
+                        <h2 className="font-display text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                            Book Your<br />Appointment
+                        </h2>
+                        <p className="text-white/80 text-lg leading-relaxed mb-10 max-w-md">
+                            Ready to experience the healing power of professional massage therapy?
+                            Reach out today — we&apos;d love to hear from you.
+                        </p>
+                        <div className="flex flex-col sm:flex-row gap-4">
+                            <a
+                                href="tel:6363007711"
+                                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-[#5B2D8E] font-bold text-lg hover:bg-gray-50 transition-colors shadow-lg"
+                            >
+                                📞 (636) 300-7711
+                            </a>
+                            <a
+                                href="mailto:massagebydiamond@yahoo.com"
+                                className="inline-flex items-center justify-center px-8 py-4 rounded-full border-2 border-white/40 text-white font-semibold hover:bg-white/10 transition-all"
+                            >
+                                ✉️ Email Us
+                            </a>
+                        </div>
+                    </div>
+
+                    {/* Right: Info */}
+                    <div className="space-y-8">
+                        <div>
+                            <h4 className="text-white/60 text-sm uppercase tracking-wider font-semibold mb-2">Location</h4>
+                            <p className="text-xl font-semibold">108 Downey Place</p>
+                            <p className="text-white/80">Cuba, MO 65453</p>
+                            <p className="text-white/60 text-sm mt-1">Inside Roots 66 Salon</p>
+                        </div>
+                        <div>
+                            <h4 className="text-white/60 text-sm uppercase tracking-wider font-semibold mb-2">Contact</h4>
+                            <p className="text-xl font-semibold">
+                                <a href="tel:6363007711" className="hover:underline">(636) 300-7711</a>
+                            </p>
+                            <p className="text-white/80">
+                                <a href="mailto:massagebydiamond@yahoo.com" className="hover:underline">massagebydiamond@yahoo.com</a>
+                            </p>
+                        </div>
+                        <div>
+                            <h4 className="text-white/60 text-sm uppercase tracking-wider font-semibold mb-2">Hours</h4>
+                            <p className="text-xl font-semibold">By Appointment Only</p>
+                            <p className="text-white/60 text-sm mt-1">Message or text to schedule</p>
+                        </div>
+                        <div>
+                            <h4 className="text-white/60 text-sm uppercase tracking-wider font-semibold mb-2">Social</h4>
+                            <a
+                                href="https://www.facebook.com/profile.php?id=61574471992072"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 text-white hover:underline font-medium"
+                            >
+                                Facebook →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                {/* Footer Bar */}
+                <div className="mt-20 pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center gap-4 text-white/50 text-sm">
+                    <p>&copy; {new Date().getFullYear()} Pure Diamond Massage. All rights reserved.</p>
+                    <p>Massage Therapy Services Only</p>
+                </div>
+            </div>
+        </section>
+    );
+}
+
+/* ────────────────────────────────────────────
+   PAGE
+   ──────────────────────────────────────────── */
+export default function Home() {
+    return (
+        <main>
+            <Hero />
+            <MeetDiamond />
+            <Services />
+            <Reviews />
+            <Contact />
         </main>
     );
 }

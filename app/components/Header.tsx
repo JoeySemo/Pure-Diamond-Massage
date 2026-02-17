@@ -1,0 +1,118 @@
+"use client";
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+
+export default function Header() {
+    const [scrolled, setScrolled] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    useEffect(() => {
+        const onScroll = () => setScrolled(window.scrollY > 40);
+        window.addEventListener('scroll', onScroll);
+        return () => window.removeEventListener('scroll', onScroll);
+    }, []);
+
+    useEffect(() => {
+        document.body.style.overflow = menuOpen ? 'hidden' : '';
+        return () => { document.body.style.overflow = ''; };
+    }, [menuOpen]);
+
+    const links = [
+        { label: 'Home', href: '#hero' },
+        { label: 'Services', href: '#services' },
+        { label: 'About', href: '#about' },
+        { label: 'Contact', href: '#contact' },
+    ];
+
+    return (
+        <header
+            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+                ? 'bg-white shadow-md py-3'
+                : 'bg-white/80 backdrop-blur-sm py-5'
+                }`}
+        >
+            <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+                {/* Logo */}
+                <a href="#hero" className="flex items-center gap-3 group">
+                    <img
+                        src="/images/logo.png"
+                        alt="Pure Diamond Massage logo"
+                        className="h-10 w-auto"
+                    />
+                    <div className="flex flex-col leading-tight">
+                        <span className="font-display text-lg font-bold text-[#5B2D8E]">
+                            Pure Diamond
+                        </span>
+                        <span className="text-[10px] uppercase tracking-[0.2em] text-[#2A9D8F] font-semibold">
+                            Massage Therapy
+                        </span>
+                    </div>
+                </a>
+
+                {/* Desktop Nav */}
+                <nav className="hidden md:flex items-center gap-8">
+                    {links.map((link) => (
+                        <a
+                            key={link.label}
+                            href={link.href}
+                            className="text-sm font-medium text-[#2D2D3F] hover:text-[#5B2D8E] transition-colors"
+                        >
+                            {link.label}
+                        </a>
+                    ))}
+                    <a
+                        href="tel:6363007711"
+                        className="ml-2 inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-white text-sm font-semibold shadow-md hover:shadow-lg hover:scale-105 transition-all"
+                        style={{ background: 'linear-gradient(135deg, #5B2D8E, #2A9D8F)' }}
+                    >
+                        📞 Book Now
+                    </a>
+                </nav>
+
+                {/* Mobile Toggle */}
+                <button
+                    onClick={() => setMenuOpen(!menuOpen)}
+                    className="md:hidden relative w-8 h-8 flex items-center justify-center"
+                    aria-label="Toggle menu"
+                >
+                    <span className={`absolute w-6 h-0.5 bg-[#5B2D8E] transition-all duration-300 ${menuOpen ? 'rotate-45' : '-translate-y-1.5'}`} />
+                    <span className={`absolute w-6 h-0.5 bg-[#5B2D8E] transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
+                    <span className={`absolute w-6 h-0.5 bg-[#5B2D8E] transition-all duration-300 ${menuOpen ? '-rotate-45' : 'translate-y-1.5'}`} />
+                </button>
+            </div>
+
+            {/* Mobile Menu */}
+            <AnimatePresence>
+                {menuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        className="md:hidden absolute top-full left-0 right-0 bg-white shadow-xl border-t border-gray-100"
+                    >
+                        <nav className="flex flex-col p-6 gap-1">
+                            {links.map((link) => (
+                                <a
+                                    key={link.label}
+                                    href={link.href}
+                                    onClick={() => setMenuOpen(false)}
+                                    className="py-3 px-4 text-[#2D2D3F] font-medium hover:bg-[#E8DFF5] rounded-lg transition-colors"
+                                >
+                                    {link.label}
+                                </a>
+                            ))}
+                            <a
+                                href="tel:6363007711"
+                                onClick={() => setMenuOpen(false)}
+                                className="mt-3 py-3 px-4 text-center rounded-full text-white font-semibold"
+                                style={{ background: 'linear-gradient(135deg, #5B2D8E, #2A9D8F)' }}
+                            >
+                                📞 (636) 300-7711
+                            </a>
+                        </nav>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+        </header>
+    );
+}
