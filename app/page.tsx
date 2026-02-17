@@ -89,6 +89,120 @@ function Hero() {
                 />
             ))}
 
+            {/* Energy pulse rings — radiating outward from center */}
+            {[0, 1, 2].map((i) => (
+                <motion.div
+                    key={`pulse-${i}`}
+                    className="absolute rounded-full pointer-events-none"
+                    style={{
+                        top: '50%',
+                        left: '50%',
+                        width: '200px',
+                        height: '200px',
+                        marginTop: '-100px',
+                        marginLeft: '-100px',
+                        border: '1px solid rgba(42,157,143,0.12)',
+                    }}
+                    animate={{
+                        scale: [1, 4, 6],
+                        opacity: [0.4, 0.15, 0],
+                    }}
+                    transition={{
+                        duration: 6,
+                        delay: i * 2,
+                        repeat: Infinity,
+                        ease: 'easeOut',
+                    }}
+                />
+            ))}
+
+            {/* Floating essential oil droplets */}
+            {[0, 1, 2, 3, 4, 5].map((i) => (
+                <motion.svg
+                    key={`drop-${i}`}
+                    className="absolute pointer-events-none"
+                    width="12"
+                    height="16"
+                    viewBox="0 0 12 16"
+                    style={{
+                        left: `${5 + i * 16}%`,
+                        top: `${25 + (i * 13) % 50}%`,
+                    }}
+                    animate={{
+                        y: [0, -30, 10, -20, 0],
+                        x: [0, 10, -8, 5, 0],
+                        opacity: [0.2, 0.5, 0.3, 0.6, 0.2],
+                        rotate: [0, 15, -10, 5, 0],
+                    }}
+                    transition={{
+                        duration: 8 + i * 1.5,
+                        delay: i * 1.3,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                    }}
+                >
+                    <path
+                        d="M6,1 Q10,6 9,10 Q8,13 6,14 Q4,13 3,10 Q2,6 6,1Z"
+                        fill={i % 2 === 0 ? 'rgba(42,157,143,0.08)' : 'rgba(91,45,142,0.06)'}
+                        stroke={i % 2 === 0 ? 'rgba(42,157,143,0.18)' : 'rgba(91,45,142,0.14)'}
+                        strokeWidth="0.5"
+                    />
+                </motion.svg>
+            ))}
+
+            {/* Undulating wave bands */}
+            {[0, 1, 2, 3].map((i) => (
+                <motion.div
+                    key={`band-${i}`}
+                    className="absolute pointer-events-none"
+                    style={{
+                        top: `${20 + i * 18}%`,
+                        left: '-10%',
+                        width: '120%',
+                        height: '1px',
+                        background: `linear-gradient(90deg, transparent, rgba(42,157,143,${0.06 - i * 0.01}), rgba(91,45,142,${0.04}), rgba(42,157,143,${0.06 - i * 0.01}), transparent)`,
+                    }}
+                    animate={{
+                        y: [0, Math.sin(i) * 20, -Math.cos(i) * 15, 0],
+                        scaleY: [1, 2, 1, 1.5, 1],
+                        opacity: [0.3, 0.6, 0.3],
+                    }}
+                    transition={{
+                        duration: 8 + i * 2,
+                        delay: i * 1.5,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                    }}
+                />
+            ))}
+
+            {/* Shimmering motes */}
+            {Array.from({ length: 10 }).map((_, i) => (
+                <motion.div
+                    key={`mote-${i}`}
+                    className="absolute rounded-full pointer-events-none"
+                    style={{
+                        width: `${2 + (i % 3)}px`,
+                        height: `${2 + (i % 3)}px`,
+                        background: i % 3 === 0 ? 'rgba(42,157,143,0.5)' : i % 3 === 1 ? 'rgba(91,45,142,0.4)' : 'rgba(255,255,255,0.3)',
+                        left: `${5 + (i * 9.5) % 90}%`,
+                        top: `${10 + (i * 8.3) % 80}%`,
+                        boxShadow: `0 0 ${4 + i}px ${i % 3 === 0 ? 'rgba(42,157,143,0.3)' : 'rgba(91,45,142,0.2)'}`,
+                    }}
+                    animate={{
+                        opacity: [0, 0.8, 0],
+                        scale: [0.5, 1.5, 0.5],
+                        y: [0, -(10 + i * 3), 0],
+                    }}
+                    transition={{
+                        duration: 3 + (i % 4) * 1.5,
+                        delay: i * 0.6,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                    }}
+                />
+            ))}
+
             {/* Geometric diamond sparkles */}
             {Array.from({ length: 8 }).map((_, i) => (
                 <motion.div
@@ -209,10 +323,10 @@ function Hero() {
                 style={{
                     top: '50%',
                     left: '50%',
-                    width: '500px',
-                    height: '500px',
-                    marginTop: '-250px',
-                    marginLeft: '-250px',
+                    width: '620px',
+                    height: '620px',
+                    marginTop: '-310px',
+                    marginLeft: '-310px',
                 }}
                 animate={{ rotate: 360 }}
                 transition={{ duration: 90, repeat: Infinity, ease: 'linear' }}
@@ -233,14 +347,14 @@ function Hero() {
             {/* Center content — oversized logo + CTAs only */}
             <div className="relative z-10 text-center px-6">
                 {/* Massive logo container */}
-                <div className="relative mx-auto mb-6" style={{ width: '380px', height: '380px', maxWidth: '80vw', maxHeight: '80vw' }}>
+                <div className="relative mx-auto mb-6" style={{ width: '475px', height: '475px', maxWidth: '85vw', maxHeight: '85vw' }}>
                     {/* Outer rotating ring — wider */}
                     <motion.div
                         className="absolute inset-0"
                         animate={{ rotate: 360 }}
                         transition={{ duration: 50, repeat: Infinity, ease: 'linear' }}
                     >
-                        <svg viewBox="0 0 380 380" className="w-full h-full">
+                        <svg viewBox="0 0 475 475" className="w-full h-full">
                             <defs>
                                 <linearGradient id="heroRingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
                                     <stop offset="0%" stopColor="#2A9D8F" stopOpacity="0.5" />
@@ -248,8 +362,8 @@ function Hero() {
                                     <stop offset="100%" stopColor="#2A9D8F" stopOpacity="0.5" />
                                 </linearGradient>
                             </defs>
-                            <circle cx="190" cy="190" r="185" fill="none" stroke="url(#heroRingGrad)" strokeWidth="1" strokeDasharray="10,15" />
-                            <circle cx="190" cy="190" r="175" fill="none" stroke="url(#heroRingGrad)" strokeWidth="0.5" strokeDasharray="5,20" />
+                            <circle cx="237.5" cy="237.5" r="232" fill="none" stroke="url(#heroRingGrad)" strokeWidth="1" strokeDasharray="12,18" />
+                            <circle cx="237.5" cy="237.5" r="220" fill="none" stroke="url(#heroRingGrad)" strokeWidth="0.5" strokeDasharray="6,22" />
                         </svg>
                     </motion.div>
 
@@ -259,8 +373,8 @@ function Hero() {
                         animate={{ rotate: -360 }}
                         transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
                     >
-                        <svg viewBox="0 0 340 340" className="w-full h-full">
-                            <circle cx="170" cy="170" r="165" fill="none" stroke="rgba(42,157,143,0.15)" strokeWidth="0.5" strokeDasharray="3,12" />
+                        <svg viewBox="0 0 430 430" className="w-full h-full">
+                            <circle cx="215" cy="215" r="210" fill="none" stroke="rgba(42,157,143,0.15)" strokeWidth="0.5" strokeDasharray="4,14" />
                         </svg>
                     </motion.div>
 
