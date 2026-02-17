@@ -179,12 +179,11 @@ function Hero() {
                         transition={{ duration: 1, ease: 'easeOut' }}
                     >
                         <img
-                            src="/images/logo.png"
+                            src="/images/logo-hero.png"
                             alt="Pure Diamond Massage"
                             className="w-44 h-44 object-contain"
                             style={{
-                                mixBlendMode: 'screen',
-                                filter: 'drop-shadow(0 0 25px rgba(42,157,143,0.4)) brightness(1.3)',
+                                filter: 'drop-shadow(0 0 25px rgba(42,157,143,0.4)) brightness(1.2)',
                             }}
                         />
                     </motion.div>
