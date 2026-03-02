@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Outfit, Playfair_Display } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import Header from "./components/Header";
 import "./globals.css";
 
@@ -28,6 +29,7 @@ export default function RootLayout({
             <body className="font-sans antialiased">
                 <Header />
                 {children}
+                <Analytics />
             </body>
         </html>
     );
