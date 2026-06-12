@@ -1,7 +1,6 @@
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
-import AnimatedDiamond from './components/AnimatedDiamond';
 
 /* ────────────────────────────────────────────
    HERO — Logo-Centric Animated Experience
@@ -404,48 +403,19 @@ function Hero() {
                     <motion.div
                         className="absolute inset-0 flex items-center justify-center"
                         initial={{ opacity: 0, scale: 0.7 }}
-                        animate={{ 
-                            opacity: 1, 
-                            scale: 1,
-                            y: [0, -6, 0]
-                        }}
-                        transition={{ 
-                            opacity: { duration: 1.2, ease: 'easeOut' },
-                            scale: { duration: 1.2, ease: 'easeOut' },
-                            y: { duration: 6, repeat: Infinity, ease: 'easeInOut' }
-                        }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 1.2, ease: 'easeOut' }}
                     >
-                        <div className="relative w-full h-full p-6">
-                            <img
-                                src="/images/logo-hero.png"
-                                alt="Pure Diamond Massage"
-                                className="w-full h-full object-contain"
-                                style={{
-                                    filter: 'drop-shadow(0 0 30px rgba(42,157,143,0.35)) brightness(1.15)',
-                                }}
-                            />
-                            {/* Animated Diamond Overlay */}
-                            <motion.div
-                                style={{
-                                    position: 'absolute',
-                                    left: '55.05%',
-                                    top: '40.25%',
-                                    width: '45.5%',
-                                    height: '35.4%',
-                                    transform: 'translate(-50%, -50%)',
-                                }}
-                                animate={{
-                                    scale: [0.96, 1.04, 0.96],
-                                }}
-                                transition={{
-                                    duration: 4,
-                                    repeat: Infinity,
-                                    ease: 'easeInOut',
-                                }}
-                            >
-                                <AnimatedDiamond className="w-full h-full" />
-                            </motion.div>
-                        </div>
+                        <motion.img
+                            src="/images/logo-hero.png"
+                            alt="Pure Diamond Massage"
+                            className="w-full h-full object-contain p-6"
+                            style={{
+                                filter: 'drop-shadow(0 0 30px rgba(42,157,143,0.35)) brightness(1.15)',
+                            }}
+                            animate={{ y: [0, -6, 0] }}
+                            transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
+                        />
                     </motion.div>
                 </div>
 

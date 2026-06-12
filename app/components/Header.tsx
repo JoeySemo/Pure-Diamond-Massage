@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import AnimatedDiamond from './AnimatedDiamond';
 
 export default function Header() {
     const [scrolled, setScrolled] = useState(false);
@@ -35,32 +34,15 @@ export default function Header() {
             <div className="flex items-center justify-between">
                 {/* Logo — matching transparent PNG from hero */}
                 <a href="/" className="flex items-center gap-2 pl-2 md:pl-4 group">
-                    <div
-                        className="relative transition-all duration-300"
+                    <img
+                        src="/images/logo-hero.png"
+                        alt="Pure Diamond Massage"
+                        className="transition-all duration-300 object-contain"
                         style={{
                             height: scrolled ? '40px' : '56px',
                             width: scrolled ? '40px' : '56px',
                         }}
-                    >
-                        <img
-                            src="/images/logo-hero.png"
-                            alt="Pure Diamond Massage"
-                            className="w-full h-full object-contain"
-                        />
-                        {/* Mini Animated Diamond Overlay */}
-                        <div
-                            style={{
-                                position: 'absolute',
-                                left: '55.05%',
-                                top: '40.25%',
-                                width: '45.5%',
-                                height: '35.4%',
-                                transform: 'translate(-50%, -50%)',
-                            }}
-                        >
-                            <AnimatedDiamond className="w-full h-full" />
-                        </div>
-                    </div>
+                    />
                     <div className="flex flex-col transition-all duration-300">
                         <span className="font-display text-sm font-bold text-[#5B2D8E] leading-tight">Pure Diamond</span>
                         <span className="text-[10px] font-semibold tracking-[0.2em] text-[#2A9D8F] uppercase">Massage Therapy</span>
