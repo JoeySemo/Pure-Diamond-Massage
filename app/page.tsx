@@ -324,10 +324,10 @@ function Hero() {
                 style={{
                     top: '50%',
                     left: '50%',
-                    width: '780px',
-                    height: '780px',
-                    marginTop: '-390px',
-                    marginLeft: '-390px',
+                    width: '975px',
+                    height: '975px',
+                    marginTop: '-488px',
+                    marginLeft: '-488px',
                 }}
                 animate={{ rotate: 360 }}
                 transition={{ duration: 90, repeat: Infinity, ease: 'linear' }}
@@ -348,7 +348,7 @@ function Hero() {
             {/* Center content — oversized logo + CTAs only */}
             <div className="relative z-10 text-center px-6">
                 {/* Massive logo container */}
-                <div className="relative mx-auto mb-6" style={{ width: '594px', height: '594px', maxWidth: '90vw', maxHeight: '90vw' }}>
+                <div className="relative mx-auto mb-6" style={{ width: '742px', height: '742px', maxWidth: '90vw', maxHeight: '90vw' }}>
                     {/* Outer rotating ring — wider */}
                     <motion.div
                         className="absolute inset-0"

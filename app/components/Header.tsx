@@ -39,8 +39,8 @@ export default function Header() {
                         alt="Pure Diamond Massage"
                         className="transition-all duration-300 object-contain"
                         style={{
-                            height: scrolled ? '40px' : '56px',
-                            width: scrolled ? '40px' : '56px',
+                            height: scrolled ? '50px' : '70px',
+                            width: scrolled ? '50px' : '70px',
                         }}
                     />
                     <div className="flex flex-col transition-all duration-300">
