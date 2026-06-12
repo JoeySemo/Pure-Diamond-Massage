@@ -23,7 +23,7 @@ export const metadata: Metadata = {
         template: "%s | Pure Diamond Massage | Cuba, MO",
     },
     description:
-        "Professional massage therapy in Cuba, MO. Book Swedish, Deep Tissue, Sports Massage & more with Diamond. Located inside Roots 66 Salon at 108 Downey Place. Call (636) 300-7711.",
+        "Professional massage therapy in Cuba, MO. Book Swedish, Deep Tissue, Sports Massage & more with Diamond. Located at 108 Downey Place. Call (636) 300-7711.",
     keywords: [
         "massage therapy Cuba MO",
         "massage Cuba Missouri",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
         "relaxation massage Cuba MO",
         "massage therapist Cuba Missouri",
         "Pure Diamond Massage",
-        "Roots 66 Salon Cuba MO",
+        "108 Downey Place Cuba MO",
         "massage near me Cuba MO",
         "Crawford County massage",
     ],
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
         siteName: "Pure Diamond Massage",
         title: "Pure Diamond Massage | Cuba, MO | Therapeutic Massage & Wellness",
         description:
-            "Professional massage therapy in Cuba, MO. Book Swedish, Deep Tissue, Sports Massage & more. Located inside Roots 66 Salon. Call (636) 300-7711.",
+            "Professional massage therapy in Cuba, MO. Book Swedish, Deep Tissue, Sports Massage & more. Located at 108 Downey Place. Call (636) 300-7711.",
     },
     twitter: {
         card: "summary_large_image",
@@ -78,7 +78,7 @@ const localBusinessSchema = {
     "@id": "https://purediamondmassage.com",
     name: "Pure Diamond Massage",
     description:
-        "Professional massage therapy in Cuba, MO offering Swedish, Deep Tissue, Sports Massage, and more. Located inside Roots 66 Salon.",
+        "Professional massage therapy in Cuba, MO offering Swedish, Deep Tissue, Sports Massage, and more. Located at 108 Downey Place.",
     url: "https://purediamondmassage.com",
     telephone: "+1-636-300-7711",
     email: "massagebydiamond@yahoo.com",

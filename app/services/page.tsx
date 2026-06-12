@@ -644,7 +644,6 @@ export default function ServicesPage() {
                                 <h4 className="text-white/60 text-sm uppercase tracking-wider font-semibold mb-2">Location</h4>
                                 <p className="text-xl font-semibold">108 Downey Place</p>
                                 <p className="text-white/80">Cuba, MO 65453</p>
-                                <p className="text-white/60 text-sm mt-1">Inside Roots 66 Salon</p>
                             </div>
                             <div>
                                 <h4 className="text-white/60 text-sm uppercase tracking-wider font-semibold mb-2">Hours</h4>

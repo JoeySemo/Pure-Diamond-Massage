@@ -142,7 +142,7 @@ export default function AboutPage() {
                                 <div className="p-4 rounded-xl bg-[#F3F4F6]">
                                     <span className="text-2xl mb-1 block">📍</span>
                                     <span className="text-sm font-semibold text-[#2D2D3F]">Cuba, MO</span>
-                                    <span className="text-xs text-gray-500 block">Inside Roots 66 Salon</span>
+                                    <span className="text-xs text-gray-500 block">108 Downey Place</span>
                                 </div>
                                 <div className="p-4 rounded-xl bg-[#F3F4F6]">
                                     <span className="text-2xl mb-1 block">🎓</span>
@@ -248,7 +248,6 @@ export default function AboutPage() {
                                 <h4 className="text-white/60 text-sm uppercase tracking-wider font-semibold mb-2">Location</h4>
                                 <p className="text-xl font-semibold">108 Downey Place</p>
                                 <p className="text-white/80">Cuba, MO 65453</p>
-                                <p className="text-white/60 text-sm mt-1">Inside Roots 66 Salon</p>
                             </div>
                             <div>
                                 <h4 className="text-white/60 text-sm uppercase tracking-wider font-semibold mb-2">Hours</h4>

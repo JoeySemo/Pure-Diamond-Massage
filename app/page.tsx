@@ -438,7 +438,7 @@ function Hero() {
                 >
                     <span className="w-2 h-2 rounded-full bg-[#2A9D8F] animate-pulse" />
                     <span className="text-white/80 text-sm">
-                        Inside <span className="font-semibold text-white">Roots 66 Salon</span> · Cuba, MO
+                        <span className="font-semibold text-white">108 Downey Place</span> · Cuba, MO
                     </span>
                 </motion.div>
 
@@ -542,7 +542,7 @@ function MeetDiamond() {
                             <div className="p-4 rounded-xl bg-[#F3F4F6]">
                                 <span className="text-2xl mb-1 block">📍</span>
                                 <span className="text-sm font-semibold text-[#2D2D3F]">Cuba, MO</span>
-                                <span className="text-xs text-gray-500 block">Inside Roots 66 Salon</span>
+                                <span className="text-xs text-gray-500 block">108 Downey Place</span>
                             </div>
                             <div className="p-4 rounded-xl bg-[#F3F4F6]">
                                 <span className="text-2xl mb-1 block">🎓</span>
@@ -862,7 +862,6 @@ function Contact() {
                             <h4 className="text-white/60 text-sm uppercase tracking-wider font-semibold mb-2">Location</h4>
                             <p className="text-xl font-semibold">108 Downey Place</p>
                             <p className="text-white/80">Cuba, MO 65453</p>
-                            <p className="text-white/60 text-sm mt-1">Inside Roots 66 Salon</p>
                         </div>
                         <div>
                             <h4 className="text-white/60 text-sm uppercase tracking-wider font-semibold mb-2">Contact</h4>
