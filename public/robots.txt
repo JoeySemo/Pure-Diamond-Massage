@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://solyn.org/sitemap.xml
+Sitemap: https://purediamondmassage.com/sitemap.xml

@@ -1,6 +1,6 @@
 # 🚀 Deployment Checklist
 
-Follow these steps to complete the deployment of Pure Diamond Massage website to solyn.org.
+Follow these steps to complete the deployment of Pure Diamond Massage website to purediamondmassage.com.
 
 ## ✅ Already Completed
 
@@ -57,7 +57,7 @@ cd "/Users/josephknittel/Pure Diamond Massage"
 cd "/Users/josephknittel/Pure Diamond Massage"
 vercel login          # Opens browser for authentication
 vercel --prod         # Deploy to production
-vercel domains add solyn.org
+vercel domains add purediamondmassage.com
 ```
 
 During deployment:
@@ -70,7 +70,7 @@ During deployment:
 ### 3. Porkbun DNS Configuration
 
 > [!WARNING]
-> **API Credentials Required**: You mentioned the Porkbun API key is in a picture, but I didn't see it in the uploaded image. Please provide:
+> **API Credentials Required**: If using automated DNS updates, please provide:
 > - Porkbun API Key
 > - Porkbun Secret API Key
 
@@ -84,10 +84,8 @@ node porkbun-dns.js YOUR_API_KEY YOUR_SECRET_KEY
 **Option B: Manual via Porkbun Dashboard**
 
 1. Login to [Porkbun DNS Management](https://porkbun.com/account/domainsSpeedy)
-2. Select domain: `solyn.org`
-3. **Delete these records:**
-   - A record: `solyn.org` pointing to `216.198.79.1`
-   - CNAME: `www.solyn.org` pointing to `7f02bfc452daa99f.vercel-dns-017.com`
+2. Select domain: `purediamondmassage.com`
+3. **Delete old records pointing elsewhere (if any)**
 4. **Add these records:**
    - Type: `A`, Host: `@` (or blank), Answer: `76.76.21.21`, TTL: `600`
    - Type: `CNAME`, Host: `www`, Answer: `cname.vercel-dns.com`, TTL: `600`
@@ -100,15 +98,15 @@ node porkbun-dns.js YOUR_API_KEY YOUR_SECRET_KEY
 #### Check DNS Propagation
 ```bash
 # Check if DNS has propagated
-dig solyn.org          # Should return 76.76.21.21
-dig www.solyn.org      # Should return CNAME to vercel
+dig purediamondmassage.com          # Should return 76.76.21.21
+dig www.purediamondmassage.com      # Should return CNAME to vercel
 ```
 
 Or use browser: [https://www.whatsmydns.net/](https://www.whatsmydns.net/)
 
 #### Test Website
-- Visit [https://solyn.org](https://solyn.org)
-- Visit [https://www.solyn.org](https://www.solyn.org)
+- Visit [https://purediamondmassage.com](https://purediamondmassage.com)
+- Visit [https://www.purediamondmassage.com](https://www.purediamondmassage.com)
 - Test all pages (Home, Services, About, Contact)
 - Test navigation menu
 - Test contact form

@@ -1,6 +1,6 @@
 /**
  * Porkbun DNS Configuration Script
- * Automates DNS record updates for solyn.org to point to Vercel
+ * Automates DNS record updates for purediamondmassage.com to point to Vercel
  * 
  * Usage: node porkbun-dns.js <api_key> <secret_key>
  */
@@ -9,7 +9,7 @@ const https = require('https');
 
 const API_KEY = process.argv[2];
 const SECRET_KEY = process.argv[3];
-const DOMAIN = 'solyn.org';
+const DOMAIN = 'purediamondmassage.com';
 
 if (!API_KEY || !SECRET_KEY) {
     console.error('❌ Error: API credentials required');
@@ -56,7 +56,7 @@ function makeRequest(endpoint, data) {
 }
 
 async function main() {
-    console.log('🌐 Porkbun DNS Configuration for solyn.org');
+    console.log('🌐 Porkbun DNS Configuration for purediamondmassage.com');
     console.log('==========================================\n');
 
     try {

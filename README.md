@@ -23,7 +23,7 @@ Pure Diamond Massage offers personalized massage therapy services including:
 - **Styling:** Tailwind CSS 4 + Custom CSS
 - **Language:** TypeScript
 - **Deployment:** Vercel
-- **Domain:** solyn.org
+- **Domain:** purediamondmassage.com
 
 ## Development
 
@@ -66,20 +66,18 @@ vercel login
 vercel --prod
 
 # Add custom domain
-vercel domains add solyn.org
+vercel domains add purediamondmassage.com
 ```
 
 ### 3. DNS Configuration (Porkbun)
 
-Update DNS records for `solyn.org`:
+Update DNS records for `purediamondmassage.com`:
 
-**Delete existing records:**
-- A record: `solyn.org` → `216.198.79.1`
-- CNAME record: `www.solyn.org` → `7f02bfc452daa99f.vercel-dns-017.com`
+**Delete existing records pointing elsewhere (if any)**
 
 **Add new records:**
-- A record: `solyn.org` → `76.76.21.21` (Vercel)
-- CNAME record: `www.solyn.org` → `cname.vercel-dns.com`
+- A record: `purediamondmassage.com` → `76.76.21.21` (Vercel)
+- CNAME record: `www.purediamondmassage.com` → `cname.vercel-dns.com`
 
 ## Features
 

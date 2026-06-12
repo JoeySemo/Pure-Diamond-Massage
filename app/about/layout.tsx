@@ -13,13 +13,13 @@ export const metadata: Metadata = {
         "therapeutic massage Cuba Missouri",
     ],
     alternates: {
-        canonical: "https://solyn.org/about",
+        canonical: "https://purediamondmassage.com/about",
     },
     openGraph: {
         title: "About Diamond | Pure Diamond Massage | Cuba, MO",
         description:
             "Meet Diamond, licensed massage therapist in Cuba, MO. Passionate about helping clients heal, relax, and feel their best.",
-        url: "https://solyn.org/about",
+        url: "https://purediamondmassage.com/about",
     },
 };
 

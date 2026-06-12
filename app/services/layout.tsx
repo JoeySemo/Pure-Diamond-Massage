@@ -16,13 +16,13 @@ export const metadata: Metadata = {
         "90 minute massage Cuba Missouri",
     ],
     alternates: {
-        canonical: "https://solyn.org/services",
+        canonical: "https://purediamondmassage.com/services",
     },
     openGraph: {
         title: "Massage Services | Pure Diamond Massage | Cuba, MO",
         description:
             "Swedish, Deep Tissue, Sports Massage & more in Cuba, MO. Book your session at Pure Diamond Massage — call or text (636) 300-7711.",
-        url: "https://solyn.org/services",
+        url: "https://purediamondmassage.com/services",
     },
 };
 
