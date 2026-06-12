@@ -403,19 +403,132 @@ function Hero() {
                     <motion.div
                         className="absolute inset-0 flex items-center justify-center"
                         initial={{ opacity: 0, scale: 0.7 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 1.2, ease: 'easeOut' }}
+                        animate={{
+                            opacity: 1,
+                            scale: 1,
+                            y: [0, -6, 0],
+                        }}
+                        transition={{
+                            opacity: { duration: 1.2, ease: 'easeOut' },
+                            scale: { duration: 1.2, ease: 'easeOut' },
+                            y: { duration: 6, repeat: Infinity, ease: 'easeInOut' },
+                        }}
                     >
-                        <motion.img
-                            src="/images/logo-hero.png"
-                            alt="Pure Diamond Massage"
-                            className="w-full h-full object-contain p-6"
-                            style={{
-                                filter: 'drop-shadow(0 0 30px rgba(42,157,143,0.35)) brightness(1.15)',
-                            }}
-                            animate={{ y: [0, -6, 0] }}
-                            transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-                        />
+                        <div className="relative w-full h-full p-6">
+                            <img
+                                src="/images/logo-hero.png"
+                                alt="Pure Diamond Massage"
+                                className="w-full h-full object-contain"
+                                style={{
+                                    filter: 'drop-shadow(0 0 30px rgba(42,157,143,0.35)) brightness(1.15)',
+                                }}
+                            />
+                            
+                            {/* Animated Teal Glow centered on the Diamond */}
+                            <motion.div
+                                className="absolute rounded-full pointer-events-none"
+                                style={{
+                                    left: '55.05%',
+                                    top: '40.25%',
+                                    width: '120px',
+                                    height: '120px',
+                                    background: 'radial-gradient(circle, rgba(42,157,143,0.4) 0%, rgba(42,157,143,0.1) 40%, transparent 70%)',
+                                    transform: 'translate(-50%, -50%)',
+                                }}
+                                animate={{
+                                    scale: [0.8, 1.2, 0.8],
+                                    opacity: [0.5, 0.9, 0.5],
+                                }}
+                                transition={{
+                                    duration: 4,
+                                    repeat: Infinity,
+                                    ease: 'easeInOut',
+                                }}
+                            />
+
+                            {/* Sparkle 1: Primary Twinkle */}
+                            <motion.svg
+                                className="absolute pointer-events-none text-white fill-current"
+                                style={{
+                                    left: '55.05%',
+                                    top: '40.25%',
+                                    width: '32px',
+                                    height: '32px',
+                                    transform: 'translate(-50%, -50%)',
+                                    filter: 'drop-shadow(0 0 8px rgba(255,255,255,0.8))',
+                                }}
+                                viewBox="0 0 24 24"
+                                animate={{
+                                    scale: [0, 1.2, 0, 0],
+                                    rotate: [0, 90, 180, 180],
+                                    opacity: [0, 1, 0, 0],
+                                }}
+                                transition={{
+                                    duration: 5,
+                                    repeat: Infinity,
+                                    ease: 'easeInOut',
+                                    times: [0, 0.2, 0.4, 1],
+                                }}
+                            >
+                                <path d="M12 2 L14.8 9.2 L22 12 L14.8 14.8 L12 22 L9.2 14.8 L2 12 L9.2 9.2 Z" />
+                            </motion.svg>
+
+                            {/* Sparkle 2: Small offset twinkle (Teal) */}
+                            <motion.svg
+                                className="absolute pointer-events-none text-teal-200 fill-current"
+                                style={{
+                                    left: '58.5%',
+                                    top: '38.5%',
+                                    width: '18px',
+                                    height: '18px',
+                                    transform: 'translate(-50%, -50%)',
+                                    filter: 'drop-shadow(0 0 6px rgba(42,157,143,0.8))',
+                                }}
+                                viewBox="0 0 24 24"
+                                animate={{
+                                    scale: [0, 0, 1, 0, 0],
+                                    rotate: [0, 0, 45, 90, 90],
+                                    opacity: [0, 0, 1, 0, 0],
+                                }}
+                                transition={{
+                                    duration: 5,
+                                    repeat: Infinity,
+                                    ease: 'easeInOut',
+                                    times: [0, 0.3, 0.5, 0.7, 1],
+                                    delay: 1,
+                                }}
+                            >
+                                <path d="M12 2 L14.8 9.2 L22 12 L14.8 14.8 L12 22 L9.2 14.8 L2 12 L9.2 9.2 Z" />
+                            </motion.svg>
+
+                            {/* Sparkle 3: Tiny offset twinkle (Purple) */}
+                            <motion.svg
+                                className="absolute pointer-events-none text-purple-200 fill-current"
+                                style={{
+                                    left: '52.0%',
+                                    top: '42.5%',
+                                    width: '14px',
+                                    height: '14px',
+                                    transform: 'translate(-50%, -50%)',
+                                    filter: 'drop-shadow(0 0 4px rgba(91,45,142,0.8))',
+                                }}
+                                viewBox="0 0 24 24"
+                                animate={{
+                                    scale: [0, 0, 1, 0, 0],
+                                    rotate: [0, 0, -45, 0, 0],
+                                    opacity: [0, 0, 0.8, 0, 0],
+                                }}
+                                transition={{
+                                    duration: 5,
+                                    repeat: Infinity,
+                                    ease: 'easeInOut',
+                                    times: [0, 0.5, 0.7, 0.9, 1],
+                                    delay: 2,
+                                }}
+                            >
+                                <path d="M12 2 L14.8 9.2 L22 12 L14.8 14.8 L12 22 L9.2 14.8 L2 12 L9.2 9.2 Z" />
+                            </motion.svg>
+                        </div>
                     </motion.div>
                 </div>
 
