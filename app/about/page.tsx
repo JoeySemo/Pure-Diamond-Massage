@@ -96,19 +96,19 @@ export default function AboutPage() {
                                 
                                 {/* Diamond Glow - pulsing radial gradient */}
                                 <motion.div
-                                    className="absolute rounded-full pointer-events-none"
+                                    className="absolute z-10 rounded-full pointer-events-none"
                                     style={{
                                         left: '50%',
                                         top: '50%',
-                                        width: '180px',
-                                        height: '180px',
-                                        background: 'radial-gradient(circle, rgba(173,230,225,0.35) 0%, rgba(42,157,143,0.08) 50%, transparent 75%)',
+                                        width: '200px',
+                                        height: '200px',
+                                        background: 'radial-gradient(circle, rgba(173,230,225,0.45) 0%, rgba(42,157,143,0.12) 50%, transparent 75%)',
                                         transform: 'translate(-50%, -50%)',
                                         mixBlendMode: 'screen',
                                     }}
                                     animate={{
-                                        scale: [0.95, 1.15, 0.95],
-                                        opacity: [0.4, 0.8, 0.4],
+                                        scale: [0.9, 1.2, 0.9],
+                                        opacity: [0.5, 0.9, 0.5],
                                     }}
                                     transition={{
                                         duration: 5,
@@ -119,23 +119,23 @@ export default function AboutPage() {
 
                                 {/* Diamond Sparkle at the top-right facet (339, 217) -> (52.97%, 33.91%) */}
                                 <motion.svg
-                                    className="absolute pointer-events-none text-white fill-current"
+                                    className="absolute z-10 pointer-events-none text-white fill-current"
                                     style={{
                                         left: '52.97%',
                                         top: '33.91%',
-                                        width: '48px',
-                                        height: '48px',
+                                        width: '54px',
+                                        height: '54px',
                                         transform: 'translate(-50%, -50%)',
-                                        filter: 'drop-shadow(0 0 10px rgba(255,255,255,0.9))',
+                                        filter: 'drop-shadow(0 0 12px rgba(255,255,255,1))',
                                     }}
                                     viewBox="0 0 24 24"
                                     animate={{
-                                        scale: [0.8, 1.3, 0.8],
-                                        rotate: [0, 15, 0],
-                                        opacity: [0.7, 1, 0.7],
+                                        scale: [0.3, 1.4, 0.3],
+                                        rotate: [0, 90, 180],
+                                        opacity: [0.2, 1, 0.2],
                                     }}
                                     transition={{
-                                        duration: 3,
+                                        duration: 4,
                                         repeat: Infinity,
                                         ease: 'easeInOut',
                                     }}
@@ -143,23 +143,26 @@ export default function AboutPage() {
                                     <path d="M12 2 L14.5 9.5 L22 12 L14.5 14.5 L12 22 L9.5 14.5 L2 12 L9.5 9.5 Z" />
                                 </motion.svg>
 
-                                {/* Additional subtle diagonal glint/shine effect */}
-                                <motion.div
-                                    className="absolute inset-0 pointer-events-none"
-                                    style={{
-                                        background: 'linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.3) 50%, transparent 60%)',
-                                        backgroundSize: '300% 300%',
-                                    }}
-                                    animate={{
-                                        backgroundPosition: ['100% 100%', '0% 0%'],
-                                    }}
-                                    transition={{
-                                        duration: 6,
-                                        repeat: Infinity,
-                                        ease: 'easeInOut',
-                                        repeatDelay: 2,
-                                    }}
-                                />
+                                {/* Additional diagonal glint/shine effect */}
+                                <div className="absolute inset-0 z-10 overflow-hidden pointer-events-none">
+                                    <motion.div
+                                        className="absolute w-[50%] h-[200%] bg-white/25 blur-[30px]"
+                                        style={{
+                                            top: '-50%',
+                                            left: '-60%',
+                                            transform: 'rotate(45deg)',
+                                        }}
+                                        animate={{
+                                            left: ['-60%', '140%'],
+                                        }}
+                                        transition={{
+                                            duration: 3,
+                                            repeat: Infinity,
+                                            ease: 'easeInOut',
+                                            repeatDelay: 3,
+                                        }}
+                                    />
+                                </div>
                             </div>
                             {/* Rating Badge */}
                             <div className="absolute -bottom-6 right-4 md:right-8 bg-white rounded-2xl shadow-xl px-6 py-4 border border-gray-100">
