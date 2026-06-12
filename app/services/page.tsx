@@ -626,10 +626,12 @@ export default function ServicesPage() {
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <a
-                                    href="tel:6363007711"
+                                    href="https://massage-by-diamond.square.site/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-[#5B2D8E] font-bold text-lg hover:bg-gray-50 transition-colors shadow-lg"
                                 >
-                                    📞 (636) 300-7711
+                                    📅 Book Now
                                 </a>
                                 <a
                                     href="mailto:massagebydiamond@yahoo.com"

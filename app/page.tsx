@@ -450,10 +450,12 @@ function Hero() {
                     transition={{ duration: 0.7, delay: 1.1 }}
                 >
                     <a
-                        href="tel:6363007711"
+                        href="https://massage-by-diamond.square.site/"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#2A9D8F] hover:bg-[#248F83] text-white font-semibold text-lg shadow-lg shadow-teal-500/20 hover:shadow-xl hover:shadow-teal-500/30 transition-all hover:scale-105"
                     >
-                        📞 (636) 300-7711
+                        📅 Book Now
                     </a>
                     <a
                         href="/services"
@@ -842,10 +844,12 @@ function Contact() {
                         </p>
                         <div className="flex flex-col sm:flex-row gap-4">
                             <a
-                                href="tel:6363007711"
+                                href="https://massage-by-diamond.square.site/"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-[#5B2D8E] font-bold text-lg hover:bg-gray-50 transition-colors shadow-lg"
                             >
-                                📞 (636) 300-7711
+                                📅 Book Now
                             </a>
                             <a
                                 href="mailto:massagebydiamond@yahoo.com"

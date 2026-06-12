@@ -154,11 +154,13 @@ export default function AboutPage() {
                             {/* CTA */}
                             <div className="mt-10">
                                 <a
-                                    href="tel:6363007711"
+                                    href="https://massage-by-diamond.square.site/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-white font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all"
                                     style={{ background: 'linear-gradient(135deg, #5B2D8E, #2A9D8F)' }}
                                 >
-                                    📞 Book a Session
+                                    📅 Book a Session
                                 </a>
                             </div>
                         </motion.div>
@@ -230,10 +232,12 @@ export default function AboutPage() {
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <a
-                                    href="tel:6363007711"
+                                    href="https://massage-by-diamond.square.site/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-[#5B2D8E] font-bold text-lg hover:bg-gray-50 transition-colors shadow-lg"
                                 >
-                                    📞 (636) 300-7711
+                                    📅 Book Now
                                 </a>
                                 <a
                                     href="mailto:massagebydiamond@yahoo.com"

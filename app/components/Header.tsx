@@ -61,11 +61,13 @@ export default function Header() {
                         </a>
                     ))}
                     <a
-                        href="tel:6363007711"
+                        href="https://massage-by-diamond.square.site/"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="ml-2 inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-white text-sm font-semibold shadow-md hover:shadow-lg hover:scale-105 transition-all"
                         style={{ background: 'linear-gradient(135deg, #5B2D8E, #2A9D8F)' }}
                     >
-                        📞 Book Now
+                        📅 Book Now
                     </a>
                 </nav>
 
@@ -102,12 +104,14 @@ export default function Header() {
                                 </a>
                             ))}
                             <a
-                                href="tel:6363007711"
+                                href="https://massage-by-diamond.square.site/"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 onClick={() => setMenuOpen(false)}
                                 className="mt-3 py-3 px-4 text-center rounded-full text-white font-semibold"
                                 style={{ background: 'linear-gradient(135deg, #5B2D8E, #2A9D8F)' }}
                             >
-                                📞 (636) 300-7711
+                                📅 Book Now
                             </a>
                         </nav>
                     </motion.div>
